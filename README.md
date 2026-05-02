@@ -19,4 +19,4 @@ TurboV is designed to provide developers with stable, high-spec hosting without 
 - **Infrastructure:** NVMe SSDs, DDoS Protected Network
 
 ## 🌐 Contact & Support
-Join our [Discord Server](#) to open a ticket or talk to the community.
+Join our [Discord Server](https://discord.gg/WRM3TM9WAw) to open a ticket or talk to the community.
