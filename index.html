@@ -13,13 +13,15 @@
         .status-badge { display: inline-block; padding: 5px 15px; background: #059669; border-radius: 20px; font-size: 0.8rem; margin-bottom: 20px; }
         
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; max-width: 1100px; margin: 40px auto; padding: 0 20px; }
-        .card { background: var(--card); padding: 30px; border-radius: 15px; border: 1px solid #334155; transition: 0.3s; }
+        .card { background: var(--card); padding: 30px; border-radius: 15px; border: 1px solid #334155; transition: 0.3s; text-align: center; }
         .card:hover { border-color: var(--primary); transform: translateY(-5px); }
         
         .feature-icon { font-size: 2rem; color: var(--primary); margin-bottom: 15px; }
-        .btn { background: var(--primary); color: #0f172a; padding: 12px 25px; border-radius: 8px; text-decoration: none; font-weight: bold; display: inline-block; margin-top: 15px; }
+        .btn { background: var(--primary); color: #0f172a; padding: 12px 25px; border-radius: 8px; text-decoration: none; font-weight: bold; display: inline-block; margin-top: 15px; width: 80%; }
+        .btn:hover { background: #7dd3fc; }
         
         footer { padding: 40px; text-align: center; border-top: 1px solid #334155; margin-top: 60px; font-size: 0.9rem; color: #94a3b8; }
+        ul { list-style: none; padding: 0; font-size: 0.9rem; color: #cbd5e1; margin: 15px 0; }
     </style>
 </head>
 <body>
@@ -28,7 +30,6 @@
         <div class="status-badge">● Systems Operational</div>
         <h1>TurboV Hosting</h1>
         <p>Unbeatable specs. Enterprise reliability. Zero lag.</p>
-        <a href="#plans" class="btn">View Our Tiers</a>
     </section>
 
     <div class="grid" id="plans">
@@ -36,36 +37,36 @@
             <div class="feature-icon">🤖</div>
             <h3>Bot Starter</h3>
             <p><strong>$1.49 /mo</strong></p>
-            <ul style="list-style: none; padding: 0; font-size: 0.9rem; color: #cbd5e1;">
+            <ul>
                 <li>2GB RAM</li>
                 <li>4GB NVMe Storage</li>
                 <li>Instant Deployment</li>
             </ul>
-            <a href="#" class="btn">Select Plan</a>
+            <a href="https://discord.gg/YOUR_INVITE_CODE" class="btn">Select Plan</a>
         </div>
 
         <div class="card">
             <div class="feature-icon">🌐</div>
             <h3>Cloud-V1 VPS</h3>
             <p><strong>$4.50 /mo</strong></p>
-            <ul style="list-style: none; padding: 0; font-size: 0.9rem; color: #cbd5e1;">
+            <ul>
                 <li>4GB RAM</li>
                 <li>40GB NVMe Storage</li>
                 <li>Dedicated IP Included</li>
             </ul>
-            <a href="#" class="btn">Select Plan</a>
+            <a href="https://discord.gg/YOUR_INVITE_CODE" class="btn">Select Plan</a>
         </div>
 
         <div class="card">
             <div class="feature-icon">⚡</div>
             <h3>FiveM Elite</h3>
             <p><strong>$15.00 /mo</strong></p>
-            <ul style="list-style: none; padding: 0; font-size: 0.9rem; color: #cbd5e1;">
+            <ul>
                 <li>16GB RAM</li>
                 <li>High-Clock CPU</li>
                 <li>OneSync Optimized</li>
             </ul>
-            <a href="#" class="btn">Select Plan</a>
+            <a href="https://discord.gg/PzDag98S2" class="btn">Select Plan</a>
         </div>
     </div>
 
