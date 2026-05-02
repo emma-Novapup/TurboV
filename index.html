@@ -142,30 +142,43 @@
         .game-hosting-bar h2 { margin: 0; font-size: 1.8rem; letter-spacing: 2px; color: #fff; }
         .game-hosting-bar p { margin: 0; color: var(--primary); font-weight: bold; text-transform: uppercase; font-size: 0.9rem; }
 
-        /* RECTANGULAR GLASS BUTTON */
-        .discord-glass-btn {
+        /* GLASS BUTTON STYLES */
+        .glass-btn-container {
+            display: flex;
+            gap: 15px;
+            width: 100%;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .discord-glass-btn, .web-glass-btn {
             background: rgba(255, 255, 255, 0.05);
             backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.1);
-            padding: 15px 60px;
+            padding: 12px 30px;
             border-radius: 12px;
             text-decoration: none;
             display: flex;
             align-items: center;
             justify-content: center;
+            gap: 12px;
             transition: 0.3s;
-            max-width: 300px;
-            width: 100%;
+            min-width: 200px;
             box-sizing: border-box;
+            color: white;
+            font-weight: bold;
         }
-        .discord-glass-btn:hover { 
+
+        .discord-glass-btn:hover, .web-glass-btn:hover { 
             background: rgba(255, 255, 255, 0.1); 
             border-color: rgba(255, 255, 255, 0.3);
             transform: scale(1.02); 
             box-shadow: 0 0 20px rgba(255, 255, 255, 0.05); 
         }
-        .discord-glass-btn img { height: 35px; width: auto; filter: drop-shadow(0 0 5px rgba(255,255,255,0.2)); }
+
+        .discord-glass-btn img { height: 30px; width: auto; }
+        .web-glass-btn img { height: 30px; width: auto; border-radius: 4px; }
 
         .feature-icon { font-size: 2.5rem; color: var(--primary); margin-bottom: 20px; }
 
@@ -174,15 +187,10 @@
             color: #0f172a; 
             padding: 14px 25px; 
             border-radius: 10px; 
-            text-decoration: none; 
-            font-weight: bold; 
-            display: block; 
-            margin-top: auto; 
-            width: 100%; 
-            transition: 0.2s; 
-            border: none; 
-            cursor: pointer; 
-            box-sizing: border-box; 
+            text-decoration: none; font-weight: bold; 
+            display: block; margin-top: auto; 
+            width: 100%; transition: 0.2s; 
+            border: none; cursor: pointer; box-sizing: border-box; 
         }
         
         footer { padding: 40px; text-align: center; border-top: 1px solid rgba(51, 65, 85, 0.3); margin-top: 80px; font-size: 0.9rem; color: #94a3b8; }
@@ -249,9 +257,17 @@
             <h2>NimoranNode</h2>
             <p>Premium Game Hosting Solutions</p>
         </div>
-        <a href="https://discord.com/invite/nimoranode" target="_blank" class="discord-glass-btn">
-            <img src="discordlogo.png" alt="Discord">
-        </a>
+        
+        <div class="glass-btn-container">
+            <a href="https://discord.com/invite/nimoranode" target="_blank" class="discord-glass-btn">
+                <img src="discordlogo.png" alt="Discord">
+            </a>
+
+            <a href="https://nimoranode.com" target="_blank" class="web-glass-btn">
+                <span>Nimoranode Website</span>
+                <img src="nimora.gif" alt="Nimora Gif">
+            </a>
+        </div>
     </div>
 
     <footer>
