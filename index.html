@@ -124,7 +124,7 @@
         .card:hover { border-color: var(--primary); transform: translateY(-5px); }
         
         .game-hosting-bar {
-            max-width: 670px;
+            max-width: 800px;
             width: 100%;
             margin: 20px auto 60px auto;
             padding: 30px 20px;
@@ -142,7 +142,6 @@
         .game-hosting-bar h2 { margin: 0; font-size: 1.8rem; letter-spacing: 2px; color: #fff; }
         .game-hosting-bar p { margin: 0; color: var(--primary); font-weight: bold; text-transform: uppercase; font-size: 0.9rem; }
         
-        /* Disclaimer text styling */
         .disclaimer { font-size: 0.75rem; color: rgba(255, 255, 255, 0.4); margin-top: 5px; font-style: italic; }
 
         .glass-btn-container {
@@ -154,12 +153,12 @@
             margin-top: 10px;
         }
 
-        .discord-glass-btn, .web-glass-btn {
+        .discord-glass-btn, .web-glass-btn, .x-glass-btn {
             background: rgba(255, 255, 255, 0.05);
             backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.1);
-            padding: 12px 30px;
+            padding: 12px 25px;
             border-radius: 12px;
             text-decoration: none;
             display: flex;
@@ -167,21 +166,21 @@
             justify-content: center;
             gap: 12px;
             transition: 0.3s;
-            min-width: 200px;
+            min-width: 180px;
             box-sizing: border-box;
             color: white;
             font-weight: bold;
         }
 
-        .discord-glass-btn:hover, .web-glass-btn:hover { 
+        .discord-glass-btn:hover, .web-glass-btn:hover, .x-glass-btn:hover { 
             background: rgba(255, 255, 255, 0.1); 
             border-color: rgba(255, 255, 255, 0.3);
             transform: scale(1.02); 
             box-shadow: 0 0 20px rgba(255, 255, 255, 0.05); 
         }
 
-        .discord-glass-btn img { height: 30px; width: auto; }
-        .web-glass-btn img { height: 30px; width: auto; border-radius: 4px; }
+        .discord-glass-btn img, .x-glass-btn img { height: 28px; width: auto; }
+        .web-glass-btn img { height: 28px; width: auto; border-radius: 4px; }
 
         .feature-icon { font-size: 2.5rem; color: var(--primary); margin-bottom: 20px; }
 
@@ -270,6 +269,11 @@
             <a href="https://nimoranode.com" target="_blank" class="web-glass-btn">
                 <img src="nimora.gif" alt="Nimora Gif">
                 <span>NimoraNode Website</span>
+            </a>
+
+            <a href="https://x.com/TurboV_hosting" target="_blank" class="x-glass-btn">
+                <img src="whitelogo.png" alt="X Logo">
+                <span>Follow X</span>
             </a>
         </div>
     </div>
