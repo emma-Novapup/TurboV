@@ -5,12 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TurboV | High-Performance Hosting</title>
     <style>
-        :root { --primary: #38bdf8; --bg: #0f172a; --card: rgba(30, 41, 59, 0.8); }
+        :root { --primary: #38bdf8; --bg: #0f172a; --card: rgba(30, 41, 59, 0.85); }
         
         body { 
             font-family: 'Inter', sans-serif; 
             background-color: var(--bg);
-            /* The ./ ensures it looks in the same folder as this html file */
             background-image: linear-gradient(rgba(15, 23, 42, 0.85), rgba(15, 23, 42, 0.95)), 
                         url('./TurboV.png');
             background-size: cover;
@@ -22,31 +21,44 @@
             line-height: 1.6; 
         }
 
-        .hero { padding: 100px 20px; text-align: center; }
+        .hero { padding: 80px 20px; text-align: center; }
         h1 { font-size: 3.5rem; color: var(--primary); margin-bottom: 10px; text-shadow: 2px 2px 10px rgba(0,0,0,0.5); }
         .status-badge { display: inline-block; padding: 5px 15px; background: #059669; border-radius: 20px; font-size: 0.8rem; margin-bottom: 20px; }
         
-        .grid { display: flex; justify-content: center; gap: 20px; max-width: 1100px; margin: 40px auto; padding: 0 20px; flex-wrap: wrap; }
+        /* Fixed Grid Layout */
+        .grid { 
+            display: flex; 
+            justify-content: center; 
+            align-items: flex-start;
+            gap: 30px; 
+            max-width: 1200px; 
+            margin: 20px auto; 
+            padding: 0 20px; 
+            flex-wrap: wrap; 
+        }
         
         .card { 
             background: var(--card); 
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px); /* Support for Safari */
-            padding: 30px; 
-            border-radius: 15px; 
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            padding: 40px 30px; 
+            border-radius: 20px; 
             border: 1px solid rgba(51, 65, 85, 0.5); 
             transition: 0.3s; 
             text-align: center; 
-            width: 300px; 
+            width: 320px; 
+            box-sizing: border-box;
         }
-        .card:hover { border-color: var(--primary); transform: translateY(-5px); }
+        .card:hover { border-color: var(--primary); transform: translateY(-5px); box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
         
-        .feature-icon { font-size: 2rem; color: var(--primary); margin-bottom: 15px; }
-        .btn { background: var(--primary); color: #0f172a; padding: 12px 25px; border-radius: 8px; text-decoration: none; font-weight: bold; display: inline-block; margin-top: 15px; width: 80%; transition: 0.2s; }
-        .btn:hover { background: #7dd3fc; transform: scale(1.05); }
+        .feature-icon { font-size: 2.5rem; color: var(--primary); margin-bottom: 20px; }
+        .btn { background: var(--primary); color: #0f172a; padding: 14px 25px; border-radius: 10px; text-decoration: none; font-weight: bold; display: inline-block; margin-top: 25px; width: 100%; transition: 0.2s; box-sizing: border-box; }
+        .btn:hover { background: #7dd3fc; transform: scale(1.02); }
         
-        footer { padding: 40px; text-align: center; border-top: 1px solid rgba(51, 65, 85, 0.5); margin-top: 60px; font-size: 0.9rem; color: #94a3b8; background: rgba(15, 23, 42, 0.9); }
-        ul { list-style: none; padding: 0; font-size: 0.9rem; color: #cbd5e1; margin: 15px 0; }
+        footer { padding: 40px; text-align: center; border-top: 1px solid rgba(51, 65, 85, 0.3); margin-top: 80px; font-size: 0.9rem; color: #94a3b8; background: rgba(15, 23, 42, 0.9); }
+        ul { list-style: none; padding: 0; font-size: 1rem; color: #cbd5e1; margin: 20px 0; text-align: left; display: inline-block; }
+        ul li { margin-bottom: 10px; position: relative; padding-left: 25px; }
+        ul li::before { content: '✓'; position: absolute; left: 0; color: var(--primary); font-weight: bold; }
     </style>
 </head>
 <body>
@@ -57,11 +69,11 @@
         <p>Unbeatable specs. Enterprise reliability. Zero lag.</p>
     </section>
 
-    <div class="grid" id="plans">
+    <div class="grid">
         <div class="card">
             <div class="feature-icon">🤖</div>
             <h3>Bot Starter</h3>
-            <p><strong>$1.49 /mo</strong></p>
+            <p style="font-size: 1.5rem; font-weight: bold; margin: 10px 0;">$1.49 <span style="font-size: 0.9rem; color: #94a3b8;">/mo</span></p>
             <ul>
                 <li>2GB RAM</li>
                 <li>4GB NVMe Storage</li>
@@ -74,7 +86,7 @@
         <div class="card">
             <div class="feature-icon">🌐</div>
             <h3>Cloud-V1 VPS</h3>
-            <p><strong>$4.50 /mo</strong></p>
+            <p style="font-size: 1.5rem; font-weight: bold; margin: 10px 0;">$4.50 <span style="font-size: 0.9rem; color: #94a3b8;">/mo</span></p>
             <ul>
                 <li>4GB RAM</li>
                 <li>40GB NVMe Storage</li>
