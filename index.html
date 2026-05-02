@@ -14,7 +14,7 @@
     <meta name="theme-color" content="#38bdf8">
 
     <style>
-        :root { --primary: #38bdf8; --bg: #0f172a; --card: rgba(30, 41, 59, 0.85); --accent: #5865F2; }
+        :root { --primary: #38bdf8; --bg: #0f172a; --card: rgba(30, 41, 59, 0.85); --discord-blurple: #5865F2; }
         
         body { 
             font-family: 'Inter', sans-serif; 
@@ -66,7 +66,7 @@
             align-items: center;
         }
 
-        .insta-btn, .discord-sub-btn {
+        .insta-btn {
             width: 60px; height: 60px; border-radius: 50%;
             background: var(--card); border: 1px solid rgba(51, 65, 85, 0.5);
             display: flex; align-items: center; justify-content: center;
@@ -74,9 +74,7 @@
             text-decoration: none;
         }
         .insta-btn:hover { border-color: #E1306C; transform: scale(1.1); box-shadow: 0 0 15px rgba(225, 48, 108, 0.4); }
-        .discord-sub-btn:hover { border-color: var(--accent); transform: scale(1.1); box-shadow: 0 0 15px rgba(88, 101, 242, 0.4); }
-        
-        .insta-btn img, .discord-sub-btn img { width: 60%; height: 60%; object-fit: contain; }
+        .insta-btn img { width: 65%; height: 65%; object-fit: contain; }
 
         .fivem-banner {
             background: var(--card);
@@ -125,6 +123,7 @@
         }
         .card:hover { border-color: var(--primary); transform: translateY(-5px); }
         
+        /* Rectangular Game Hosting Bar */
         .game-hosting-bar {
             max-width: 670px;
             width: 100%;
@@ -139,10 +138,35 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 15px;
+            gap: 20px;
         }
         .game-hosting-bar h2 { margin: 0; font-size: 1.8rem; letter-spacing: 2px; color: #fff; }
         .game-hosting-bar p { margin: 0; color: var(--primary); font-weight: bold; text-transform: uppercase; font-size: 0.9rem; }
+
+        /* Rectangular Discord Button Update */
+        .discord-rect-btn {
+            background: var(--discord-blurple);
+            color: white;
+            padding: 12px 40px;
+            border-radius: 12px;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            transition: 0.3s;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            max-width: 300px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        .discord-rect-btn:hover { 
+            background: #4752c4; 
+            transform: scale(1.02); 
+            box-shadow: 0 0 20px rgba(88, 101, 242, 0.3); 
+        }
+        .discord-rect-btn img { height: 24px; width: auto; }
+        .discord-rect-btn span { font-weight: bold; font-size: 1rem; }
 
         .feature-icon { font-size: 2.5rem; color: var(--primary); margin-bottom: 20px; }
 
@@ -226,8 +250,9 @@
             <h2>NimoranNode</h2>
             <p>Premium Game Hosting Solutions</p>
         </div>
-        <a href="https://discord.com/invite/nimoranode" target="_blank" class="discord-sub-btn">
-            <img src="discordlogo.png" alt="NimoranNode Discord">
+        <a href="https://discord.com/invite/nimoranode" target="_blank" class="discord-rect-btn">
+            <img src="discordlogo.png" alt="Discord">
+            <span>Join NimoranNode</span>
         </a>
     </div>
 
