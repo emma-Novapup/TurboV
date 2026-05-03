@@ -14,7 +14,7 @@
 
     <meta property="og:title" content="TurboV Hosting | Discord Bot & VPS Solutions" />
     <meta property="og:description" content="Deploy your Discord bots and VPS servers starting at just $1.49/mo." />
-    <meta property="og:url" content="https://emma-novapup.github.io/" />
+    <meta property="og:url" content="https://emma-novapup.github.io/TurboV/" />
     <meta property="og:image" content="https://emma-novapup.github.io/TurboV.png" />
     <meta name="theme-color" content="#38bdf8">
 
@@ -111,15 +111,16 @@
             text-decoration: none; margin: 0 auto 40px auto; color: white;
         }
 
-        .nimora-section {
+        /* Sections: NimoraNode & About Us */
+        .nimora-section, .about-section {
             max-width: 1020px; width: calc(100% - 40px);
             margin: 20px auto 60px auto; padding: 30px;
             background: var(--card); backdrop-filter: blur(12px);
-            border-radius: 20px; border: 1px solid rgba(56, 189, 248, 0.2);
+            border-radius: 20px; border: 1px solid rgba(51, 65, 85, 0.5);
             text-align: center;
         }
 
-        .nimora-section h2 { margin: 0 0 5px 0; font-size: 1.8rem; }
+        .nimora-section h2, .about-section h2 { margin: 0 0 10px 0; font-size: 2.2rem; color: var(--primary); }
         .nimora-section p { color: var(--primary); font-weight: bold; margin: 0 0 20px 0; }
 
         .glass-btn-container { display: flex; gap: 15px; justify-content: center; align-items: center; flex-wrap: wrap; }
@@ -134,6 +135,15 @@
         }
         .glass-btn:hover { background: rgba(255, 255, 255, 0.1); border-color: white; }
         .glass-btn img { height: 26px; width: auto; object-fit: contain; }
+
+        /* About Grid Layout */
+        .about-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+            gap: 30px; text-align: left; margin-top: 30px; 
+        }
+        .about-item h3 { color: var(--primary); margin-bottom: 10px; font-size: 1.3rem; }
+        .about-item p { color: #94a3b8; font-size: 0.95rem; line-height: 1.6; }
 
         .disclaimer { font-size: 0.75rem; color: rgba(255, 255, 255, 0.4); margin-top: 15px; font-style: italic; }
 
@@ -214,6 +224,24 @@
             </a>
         </div>
         <div class="disclaimer">NimoraNode is not partnered with TurboV</div>
+    </div>
+
+    <div class="about-section">
+        <h2>Why TurboV Hosting?</h2>
+        <div class="about-grid">
+            <div class="about-item">
+                <h3>Community Focused</h3>
+                <p>Born from the Discord and FiveM communities, we build hosting solutions for developers, by developers. We know the performance your projects require.</p>
+            </div>
+            <div class="about-item">
+                <h3>Power & Reliability</h3>
+                <p>Experience the speed of enterprise-grade NVMe storage and lag-free network stability. Our nodes are optimized for 24/7 high-uptime performance.</p>
+            </div>
+            <div class="about-item">
+                <h3>Support Excellence</h3>
+                <p>Our Discord-first support model ensures you get technical help directly from a team that understands your vision and your server's needs.</p>
+            </div>
+        </div>
     </div>
 
     <footer>
