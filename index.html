@@ -89,13 +89,15 @@
         .glass-btn {
             background: rgba(255, 255, 255, 0.05);
             border: 1px solid rgba(255, 255, 255, 0.1);
-            padding: 12px 25px; border-radius: 12px;
-            text-decoration: none; display: flex; align-items: center; gap: 12px;
+            padding: 12px; border-radius: 12px;
+            text-decoration: none; display: flex; align-items: center; justify-content: center; gap: 12px;
             color: white; font-weight: bold; transition: 0.3s;
-            min-height: 50px;
+            width: 180px; /* Equalized length */
+            min-height: 55px;
+            box-sizing: border-box;
         }
         .glass-btn:hover { background: rgba(255, 255, 255, 0.1); border-color: white; }
-        .glass-btn img { height: 24px; width: auto; object-fit: contain; }
+        .glass-btn img { height: 26px; width: auto; object-fit: contain; }
 
         .disclaimer { font-size: 0.75rem; color: rgba(255, 255, 255, 0.4); margin-top: 15px; font-style: italic; }
 
