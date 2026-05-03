@@ -79,4 +79,118 @@
         .fivem-banner {
             background: var(--card); backdrop-filter: blur(12px);
             padding: 15px 30px; border-radius: 15px; border: 1px solid rgba(51, 65, 85, 0.5);
-            max-width: 10
+            max-width: 1020px; width: calc(100% - 40px);
+            display: flex; align-items: center; justify-content: center; gap: 20px;
+            text-decoration: none; margin: 0 auto 40px auto; color: white;
+        }
+
+        .nimora-section {
+            max-width: 1020px; width: calc(100% - 40px);
+            margin: 20px auto 60px auto; padding: 30px;
+            background: var(--card); backdrop-filter: blur(12px);
+            border-radius: 20px; border: 1px solid rgba(56, 189, 248, 0.2);
+            text-align: center;
+        }
+
+        .nimora-section h2 { margin: 0 0 5px 0; font-size: 1.8rem; }
+        .nimora-section p { color: var(--primary); font-weight: bold; margin: 0 0 20px 0; }
+
+        .glass-btn-container { display: flex; gap: 15px; justify-content: center; align-items: center; flex-wrap: wrap; }
+        
+        .glass-btn {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 12px; border-radius: 12px;
+            text-decoration: none; display: flex; align-items: center; justify-content: center; gap: 12px;
+            color: white; font-weight: bold; transition: 0.3s;
+            width: 180px;
+            min-height: 55px;
+            box-sizing: border-box;
+        }
+        .glass-btn:hover { background: rgba(255, 255, 255, 0.1); border-color: white; }
+        .glass-btn img { height: 26px; width: auto; object-fit: contain; }
+
+        .disclaimer { font-size: 0.75rem; color: rgba(255, 255, 255, 0.4); margin-top: 15px; font-style: italic; }
+
+        footer { padding: 40px; text-align: center; border-top: 1px solid rgba(51, 65, 85, 0.3); color: #94a3b8; }
+    </style>
+</head>
+<body>
+
+    <div class="seo-hidden">
+        TurboV Hosting specializes in reliable Discord Bot Hosting and Virtual Private Servers (VPS). 
+        Looking for the best Discord bot hosting or affordable VPS solutions? TurboV provides zero-lag server environments.
+    </div>
+
+    <section class="hero">
+        <div class="status-badge">● Systems Operational</div>
+        <h1>TurboV Hosting</h1>
+        <p>Premium Discord Bot Hosting & Enterprise VPS Specs.</p>
+    </section>
+
+    <div class="social-bar">
+        <a href="https://www.instagram.com/turbovhosting/" target="_blank" class="insta-btn">
+            <img src="instagramlogo.png" alt="TurboV Instagram">
+        </a>
+        <a href="https://x.com/TurboV_hosting" target="_blank" class="x-circle-btn">
+            <img src="whitelogo.png" alt="TurboV X Twitter">
+        </a>
+    </div>
+
+    <div class="store-container">
+        <div class="discord-integration-box">
+            <iframe src="https://discord.com/widget?id=1500060468352385054&theme=dark" allowtransparency="true" frameborder="0"></iframe>
+        </div>
+
+        <div class="card">
+            <div style="font-size: 2.5rem; margin-bottom: 20px;">🤖</div>
+            <h3>Bot Starter</h3>
+            <p style="font-size: 1.8rem; font-weight: bold; margin: 10px 0;">$1.49 /mo</p>
+            <ul style="text-align: left; list-style: none; padding: 0;">
+                <li>✓ 2GB RAM</li>
+                <li>✓ 4GB NVMe Bot Hosting</li>
+                <li>✓ 24/7 Uptime</li>
+            </ul>
+            <a href="https://discord.gg/WRM3TM9WAw" class="btn">Select Bot Hosting</a>
+        </div>
+
+        <div class="card">
+            <div style="font-size: 2.5rem; margin-bottom: 20px;">🌐</div>
+            <h3>Cloud-V1 VPS</h3>
+            <p style="font-size: 1.8rem; font-weight: bold; margin: 10px 0;">$4.50 /mo</p>
+            <ul style="text-align: left; list-style: none; padding: 0;">
+                <li>✓ 4GB RAM</li>
+                <li>✓ 40GB NVMe VPS SSD</li>
+                <li>✓ Full Root Access</li>
+            </ul>
+            <a href="https://discord.gg/WRM3TM9WAw" class="btn">Select VPS Hosting</a>
+        </div>
+    </div>
+
+    <a href="https://discord.gg/yUcbRPmbwp" class="fivem-banner">
+        <span>OFFICIAL FIVEM SERVER</span>
+        <img src="fivem.png" alt="TurboV Hosting FiveM" style="height: 30px;">
+    </a>
+
+    <div class="nimora-section">
+        <h2>NimoraNode</h2>
+        <p>PREMIUM GAME HOSTING PARTNER</p>
+        
+        <div class="glass-btn-container">
+            <a href="https://discord.com/invite/nimoranode" target="_blank" class="glass-btn">
+                <img src="discordlogo.png" alt="NimoraNode Community Discord">
+            </a>
+            <a href="https://nimoranode.com" target="_blank" class="glass-btn">
+                <img src="nimora.gif" alt="NimoraNode Website">
+                <span>Website</span>
+            </a>
+        </div>
+        <div class="disclaimer">NimoraNode is not partnered with TurboV</div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 TurboV Hosting. The ultimate choice for Discord Bot Hosting and Virtual Private Servers.</p>
+    </footer>
+
+</body>
+</html>
