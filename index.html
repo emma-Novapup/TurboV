@@ -24,12 +24,12 @@
             line-height: 1.6; 
         }
 
-        /* Hero */
+        /* Hero Section */
         .hero { padding: 60px 20px 20px 20px; text-align: center; }
         h1 { font-size: 3.5rem; color: var(--primary); margin-bottom: 10px; text-shadow: 2px 2px 10px rgba(0,0,0,0.5); }
         .status-badge { display: inline-block; padding: 5px 15px; background: #059669; border-radius: 20px; font-size: 0.8rem; margin-bottom: 20px; }
         
-        /* Social & Navigation Bar */
+        /* Navigation & Social Bar */
         .social-bar { display: flex; justify-content: center; align-items: center; gap: 15px; margin-bottom: 40px; flex-wrap: wrap; }
         .social-btn {
             width: 50px; height: 50px; border-radius: 50%;
@@ -56,25 +56,23 @@
         .card:hover { border-color: var(--primary); transform: translateY(-5px); }
         .btn { background: var(--primary); color: #0f172a; padding: 14px 25px; border-radius: 10px; text-decoration: none; font-weight: bold; display: block; margin-top: auto; border: none; }
         
-        /* Specialized Sections */
+        /* Banners & Partners */
         .fivem-banner { background: var(--card); backdrop-filter: blur(12px); padding: 15px 30px; border-radius: 15px; border: 1px solid rgba(51, 65, 85, 0.5); max-width: 1020px; width: calc(100% - 40px); display: flex; align-items: center; justify-content: center; gap: 20px; text-decoration: none; margin: 0 auto 40px auto; color: white; }
         
         .nimora-section, .about-section { max-width: 1020px; width: calc(100% - 40px); margin: 20px auto 60px auto; padding: 30px; background: var(--card); backdrop-filter: blur(12px); border-radius: 20px; border: 1px solid rgba(51, 65, 85, 0.5); text-align: center; }
         .nimora-section h2, .about-section h2 { margin: 0 0 10px 0; font-size: 2.2rem; color: var(--primary); }
-        
         .about-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; text-align: left; margin-top: 30px; }
         .about-item h3 { color: var(--primary); }
 
         .glass-btn { background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1); padding: 12px; border-radius: 12px; text-decoration: none; display: flex; align-items: center; justify-content: center; gap: 12px; color: white; font-weight: bold; transition: 0.3s; width: 180px; box-sizing: border-box; }
 
-        /* Floating Support Ticket Button & Modal */
+        /* Floating Support Button & Modal */
         .floating-ticket-btn { position: fixed; bottom: 30px; right: 30px; background: var(--primary); color: #0f172a; border: none; padding: 15px 25px; border-radius: 50px; font-weight: bold; cursor: pointer; box-shadow: 0 10px 30px rgba(56, 189, 248, 0.4); z-index: 999; }
-        
         .modal-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(15, 23, 42, 0.9); backdrop-filter: blur(8px); z-index: 1000; justify-content: center; align-items: center; padding: 20px; }
         .modal-content { background: var(--card); border: 1px solid var(--primary); padding: 40px; border-radius: 20px; width: 100%; max-width: 500px; position: relative; }
         .close-modal { position: absolute; top: 20px; right: 20px; font-size: 2rem; cursor: pointer; color: #94a3b8; }
         
-        .input-group { margin-bottom: 20px; text-align: left; }
+        .input-group { margin-bottom: 15px; text-align: left; }
         .input-group label { display: block; margin-bottom: 8px; color: var(--primary); font-size: 0.9rem; }
         .input-group input, .input-group select, .input-group textarea { width: 100%; padding: 12px; background: rgba(15, 23, 42, 0.5); border: 1px solid rgba(56, 189, 248, 0.2); border-radius: 10px; color: white; box-sizing: border-box; font-family: inherit; }
         .submit-ticket-btn { width: 100%; padding: 15px; background: var(--primary); border: none; border-radius: 10px; font-weight: bold; cursor: pointer; transition: 0.3s; }
@@ -111,7 +109,7 @@
             <ul style="text-align: left; list-style: none; padding: 0;">
                 <li>✓ 2GB RAM</li>
                 <li>✓ 4GB NVMe Bot Hosting</li>
-                <li>✓ 24/7 Support</li>
+                <li>✓ 24/7 Uptime</li>
             </ul>
             <a href="https://discord.gg/WRM3TM9WAw" class="btn">Select Bot Hosting</a>
         </div>
@@ -170,7 +168,10 @@
         <div class="modal-content">
             <span class="close-modal" onclick="toggleTicket()">&times;</span>
             <h2>Submit a Support Ticket</h2>
-            <p>Your request will be sent directly to the TurboV staff.</p>
+            
+            <div style="background: rgba(56, 189, 248, 0.15); border-left: 4px solid var(--primary); padding: 15px; margin-bottom: 20px; border-radius: 8px; text-align: left; font-size: 0.85rem;">
+                <strong>Note:</strong> Keep an eye out on your email. We will email you about support. If you have discord make sure you include it so we can contact you there instead.
+            </div>
             
             <form action="https://formspree.io/f/xwvyvwzz" method="POST">
                 <div class="input-group">
@@ -178,17 +179,21 @@
                     <input type="email" name="email" placeholder="email@example.com" required>
                 </div>
                 <div class="input-group">
+                    <label>Discord Username (Optional)</label>
+                    <input type="text" name="discord_user" placeholder="e.g. username#0000">
+                </div>
+                <div class="input-group">
                     <label>Subject</label>
                     <select name="subject">
                         <option value="Billing">Billing Issue</option>
-                        <option value="VPS Tech">Technical Support (VPS)</option>
-                        <option value="Bot Tech">Discord Bot Hosting</option>
+                        <option value="VPS">Technical Support (VPS)</option>
+                        <option value="Bot">Discord Bot Hosting</option>
                         <option value="Other">Other Inquiry</option>
                     </select>
                 </div>
                 <div class="input-group">
                     <label>Message</label>
-                    <textarea name="message" rows="4" placeholder="Describe your issue in detail..." required></textarea>
+                    <textarea name="message" rows="4" placeholder="Describe your issue..." required></textarea>
                 </div>
                 <input type="hidden" name="_next" value="https://emma-novapup.github.io/TurboV/">
                 <button type="submit" class="submit-ticket-btn">Submit Request</button>
@@ -197,7 +202,7 @@
     </div>
 
     <footer>
-        <p>&copy; 2026 TurboV Hosting | <a href="https://emma-novapup.github.io/TurboV-TOS/">Terms of Service</a></p>
+        <p>&copy; 2026 TurboV Hosting | <a href="https://emma-novapup.github.io/TurboV-TOS/">TOS</a></p>
     </footer>
 
     <script>
