@@ -93,4 +93,123 @@
 
     <div class="social-bar">
         <a href="https://www.instagram.com/turbovhosting/" target="_blank" class="social-btn"><img src="instagramlogo.png" alt="Instagram"></a>
-        <a href="https://x.com/TurboV_hosting" target="_blank" class="social-btn"><img src="whitelogo.
+        <a href="https://x.com/TurboV_hosting" target="_blank" class="social-btn"><img src="whitelogo.png" alt="X"></a>
+        <a href="https://emma-novapup.github.io/TurboV-FAQ/" class="glass-link-btn">FAQ</a>
+        <a href="https://emma-novapup.github.io/TurboV-TOS/" class="glass-link-btn">TOS</a>
+        <a href="https://emma-novapup.github.io/TurboVSupport/" class="glass-link-btn">Support Center</a>
+    </div>
+
+    <div class="store-container">
+        <div class="discord-integration-box">
+            <iframe src="https://discord.com/widget?id=1500060468352385054&theme=dark" allowtransparency="true" frameborder="0"></iframe>
+        </div>
+
+        <div class="card">
+            <div style="font-size: 2.5rem; margin-bottom: 20px;">🤖</div>
+            <h3>Bot Starter</h3>
+            <p style="font-size: 1.8rem; font-weight: bold; margin: 10px 0;">$1.49 /mo</p>
+            <ul style="text-align: left; list-style: none; padding: 0;">
+                <li>✓ 2GB RAM</li>
+                <li>✓ 4GB NVMe Bot Hosting</li>
+                <li>✓ 24/7 Support</li>
+            </ul>
+            <a href="https://discord.gg/WRM3TM9WAw" class="btn">Select Bot Hosting</a>
+        </div>
+
+        <div class="card">
+            <div style="font-size: 2.5rem; margin-bottom: 20px;">🌐</div>
+            <h3>Cloud-V1 VPS</h3>
+            <p style="font-size: 1.8rem; font-weight: bold; margin: 10px 0;">$4.50 /mo</p>
+            <ul style="text-align: left; list-style: none; padding: 0;">
+                <li>✓ 4GB RAM</li>
+                <li>✓ 40GB NVMe SSD</li>
+                <li>✓ Root Access</li>
+            </ul>
+            <a href="https://discord.gg/WRM3TM9WAw" class="btn">Select VPS Hosting</a>
+        </div>
+    </div>
+
+    <a href="https://discord.gg/yUcbRPmbwp" class="fivem-banner">
+        <span>OFFICIAL FIVEM SERVER</span>
+        <img src="fivem.png" alt="FiveM" style="height: 30px;">
+    </a>
+
+    <div class="nimora-section">
+        <h2>NimoraNode</h2>
+        <p>PREMIUM GAME HOSTING PARTNER</p>
+        <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap; margin-top: 20px;">
+            <a href="https://discord.com/invite/nimoranode" target="_blank" class="glass-btn"><img src="discordlogo.png" style="height: 26px;"></a>
+            <a href="https://nimoranode.com" target="_blank" class="glass-btn"><img src="nimora.gif" style="height: 26px;"><span>Website</span></a>
+        </div>
+        <div style="font-size: 0.75rem; color: rgba(255, 255, 255, 0.4); margin-top: 15px; font-style: italic;">NimoraNode is not partnered with TurboV</div>
+    </div>
+
+    <div class="about-section">
+        <h2>Why TurboV Hosting?</h2>
+        <div class="about-grid">
+            <div class="about-item">
+                <h3>Community Focused</h3>
+                <p>Born from the Discord and FiveM communities, we build hosting for developers, by developers.</p>
+            </div>
+            <div class="about-item">
+                <h3>Power & Reliability</h3>
+                <p>Experience enterprise NVMe storage and lag-free network stability on every plan.</p>
+            </div>
+            <div class="about-item">
+                <h3>Support Excellence</h3>
+                <p>Our Discord-first support model ensures you get help from people who actually know your projects.</p>
+            </div>
+        </div>
+    </div>
+
+    <button class="floating-ticket-btn" onclick="toggleTicket()">
+        <span>🎫 Open Ticket</span>
+    </button>
+
+    <div id="ticketModal" class="modal-overlay">
+        <div class="modal-content">
+            <span class="close-modal" onclick="toggleTicket()">&times;</span>
+            <h2>Submit a Support Ticket</h2>
+            <p>Your request will be sent directly to the TurboV staff.</p>
+            
+            <form action="https://formspree.io/f/xwvyvwzz" method="POST">
+                <div class="input-group">
+                    <label>Email Address</label>
+                    <input type="email" name="email" placeholder="email@example.com" required>
+                </div>
+                <div class="input-group">
+                    <label>Subject</label>
+                    <select name="subject">
+                        <option value="Billing">Billing Issue</option>
+                        <option value="VPS Tech">Technical Support (VPS)</option>
+                        <option value="Bot Tech">Discord Bot Hosting</option>
+                        <option value="Other">Other Inquiry</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label>Message</label>
+                    <textarea name="message" rows="4" placeholder="Describe your issue in detail..." required></textarea>
+                </div>
+                <input type="hidden" name="_next" value="https://emma-novapup.github.io/TurboV/">
+                <button type="submit" class="submit-ticket-btn">Submit Request</button>
+            </form>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 TurboV Hosting | <a href="https://emma-novapup.github.io/TurboV-TOS/">Terms of Service</a></p>
+    </footer>
+
+    <script>
+        function toggleTicket() {
+            const modal = document.getElementById('ticketModal');
+            modal.style.display = (modal.style.display === 'flex') ? 'none' : 'flex';
+        }
+        window.onclick = function(event) {
+            const modal = document.getElementById('ticketModal');
+            if (event.target == modal) { modal.style.display = "none"; }
+        }
+    </script>
+
+</body>
+</html>
