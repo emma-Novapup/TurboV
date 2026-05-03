@@ -48,13 +48,14 @@
         .glass-link-btn:hover { background: var(--primary); color: #0f172a; transform: translateY(-2px); }
 
         /* Store Layout */
-        .store-container { display: flex; justify-content: center; align-items: stretch; gap: 30px; max-width: 1200px; margin: 0 auto 40px auto; padding: 0 20px; flex-wrap: wrap; }
-        .discord-integration-box { background: var(--card); backdrop-filter: blur(12px); padding: 10px; border-radius: 20px; border: 1px solid rgba(51, 65, 85, 0.5); width: 320px; height: 500px; box-sizing: border-box; }
+        .store-container { display: flex; justify-content: center; align-items: stretch; gap: 30px; max-width: 1250px; margin: 0 auto 40px auto; padding: 0 20px; flex-wrap: wrap; }
+        .discord-integration-box { background: var(--card); backdrop-filter: blur(12px); padding: 10px; border-radius: 20px; border: 1px solid rgba(51, 65, 85, 0.5); width: 300px; height: 500px; box-sizing: border-box; }
         .discord-integration-box iframe { width: 100%; height: 100%; border-radius: 12px; }
         
-        .card { background: var(--card); backdrop-filter: blur(12px); padding: 40px 30px; border-radius: 20px; border: 1px solid rgba(51, 65, 85, 0.5); transition: 0.3s; text-align: center; width: 320px; display: flex; flex-direction: column; box-sizing: border-box; }
+        .card { background: var(--card); backdrop-filter: blur(12px); padding: 40px 30px; border-radius: 20px; border: 1px solid rgba(51, 65, 85, 0.5); transition: 0.3s; text-align: center; width: 300px; display: flex; flex-direction: column; box-sizing: border-box; }
         .card:hover { border-color: var(--primary); transform: translateY(-5px); }
-        .btn { background: var(--primary); color: #0f172a; padding: 14px 25px; border-radius: 10px; text-decoration: none; font-weight: bold; display: block; margin-top: auto; border: none; }
+        .btn { background: var(--primary); color: #0f172a; padding: 14px 25px; border-radius: 10px; text-decoration: none; font-weight: bold; display: block; margin-top: auto; border: none; transition: 0.3s; }
+        .btn:hover { filter: brightness(1.2); }
         
         /* Banners & Partners */
         .fivem-banner { background: var(--card); backdrop-filter: blur(12px); padding: 15px 30px; border-radius: 15px; border: 1px solid rgba(51, 65, 85, 0.5); max-width: 1020px; width: calc(100% - 40px); display: flex; align-items: center; justify-content: center; gap: 20px; text-decoration: none; margin: 0 auto 40px auto; color: white; }
@@ -105,10 +106,10 @@
             <div style="font-size: 2.5rem; margin-bottom: 20px;">🤖</div>
             <h3>Bot Starter</h3>
             <p style="font-size: 1.8rem; font-weight: bold; margin: 10px 0;">$1.49 /mo</p>
-            <ul style="text-align: left; list-style: none; padding: 0;">
+            <ul style="text-align: left; list-style: none; padding: 0; font-size: 0.9rem;">
                 <li>✓ 2GB RAM</li>
-                <li>✓ 4GB NVMe Bot Hosting</li>
-                <li>✓ 24/7 Uptime</li>
+                <li>✓ 4GB NVMe Storage</li>
+                <li>✓ 24/7 Uptime Guarantee</li>
             </ul>
             <a href="https://discord.gg/WRM3TM9WAw" class="btn">Select Bot Hosting</a>
         </div>
@@ -117,12 +118,24 @@
             <div style="font-size: 2.5rem; margin-bottom: 20px;">🌐</div>
             <h3>Cloud-V1 VPS</h3>
             <p style="font-size: 1.8rem; font-weight: bold; margin: 10px 0;">$4.50 /mo</p>
-            <ul style="text-align: left; list-style: none; padding: 0;">
+            <ul style="text-align: left; list-style: none; padding: 0; font-size: 0.9rem;">
                 <li>✓ 4GB RAM</li>
                 <li>✓ 40GB NVMe SSD</li>
-                <li>✓ Root Access</li>
+                <li>✓ Full Root Access</li>
             </ul>
             <a href="https://discord.gg/WRM3TM9WAw" class="btn">Select VPS Hosting</a>
+        </div>
+
+        <div class="card">
+            <div style="font-size: 2.5rem; margin-bottom: 20px;">💻</div>
+            <h3>Web Development</h3>
+            <p style="font-size: 1.8rem; font-weight: bold; margin: 10px 0;">Custom Pricing</p>
+            <ul style="text-align: left; list-style: none; padding: 0; font-size: 0.9rem;">
+                <li>✓ Custom Landing Pages</li>
+                <li>✓ Bot/Host Integration</li>
+                <li>✓ Full Site Management</li>
+            </ul>
+            <a href="https://discord.gg/WRM3TM9WAw" class="btn">Inquire via Discord</a>
         </div>
     </div>
 
@@ -167,7 +180,6 @@
         <div class="modal-content">
             <span class="close-modal" onclick="toggleTicket()">&times;</span>
             <h2>Submit a Support Ticket</h2>
-            
             <div style="background: rgba(56, 189, 248, 0.15); border-left: 4px solid var(--primary); padding: 15px; margin-bottom: 20px; border-radius: 8px; text-align: left; font-size: 0.85rem;">
                 <strong>Note:</strong> Keep an eye out on your email. We will email you about support. If you have discord make sure you include it so we can contact you there instead.
             </div>
