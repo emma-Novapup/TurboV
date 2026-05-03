@@ -3,7 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TurboV Hosting | Professional Discord Bot Hosting & VPS</title>
+    <title>TurboV Hosting | Discord Bot & VPS Solutions</title>
+    
+    <meta name="description" content="TurboV Hosting offers high-performance Discord Bot hosting and VPS solutions.">
     <link rel="icon" type="image/png" href="TurboVlogo2.png">
 
     <style>
@@ -22,12 +24,21 @@
             line-height: 1.6; 
         }
 
-        /* Hero & Navigation */
+        /* Hero */
         .hero { padding: 60px 20px 20px 20px; text-align: center; }
         h1 { font-size: 3.5rem; color: var(--primary); margin-bottom: 10px; text-shadow: 2px 2px 10px rgba(0,0,0,0.5); }
         .status-badge { display: inline-block; padding: 5px 15px; background: #059669; border-radius: 20px; font-size: 0.8rem; margin-bottom: 20px; }
         
+        /* Social & Navigation Bar */
         .social-bar { display: flex; justify-content: center; align-items: center; gap: 15px; margin-bottom: 40px; flex-wrap: wrap; }
+        .social-btn {
+            width: 50px; height: 50px; border-radius: 50%;
+            background: var(--card); border: 1px solid rgba(51, 65, 85, 0.5);
+            display: flex; align-items: center; justify-content: center;
+            transition: 0.3s; backdrop-filter: blur(10px); text-decoration: none;
+        }
+        .social-btn img { width: 60%; height: 60%; object-fit: contain; }
+
         .glass-link-btn {
             padding: 10px 25px; background: var(--card); border: 1px solid rgba(56, 189, 248, 0.4);
             border-radius: 20px; color: var(--primary); text-decoration: none; font-weight: bold;
@@ -38,39 +49,38 @@
 
         /* Store Layout */
         .store-container { display: flex; justify-content: center; align-items: stretch; gap: 30px; max-width: 1200px; margin: 0 auto 40px auto; padding: 0 20px; flex-wrap: wrap; }
+        .discord-integration-box { background: var(--card); backdrop-filter: blur(12px); padding: 10px; border-radius: 20px; border: 1px solid rgba(51, 65, 85, 0.5); width: 320px; height: 500px; box-sizing: border-box; }
+        .discord-integration-box iframe { width: 100%; height: 100%; border-radius: 12px; }
+        
         .card { background: var(--card); backdrop-filter: blur(12px); padding: 40px 30px; border-radius: 20px; border: 1px solid rgba(51, 65, 85, 0.5); transition: 0.3s; text-align: center; width: 320px; display: flex; flex-direction: column; box-sizing: border-box; }
-        .btn { background: var(--primary); color: #0f172a; padding: 14px 25px; border-radius: 10px; text-decoration: none; font-weight: bold; margin-top: auto; border: none; }
+        .card:hover { border-color: var(--primary); transform: translateY(-5px); }
+        .btn { background: var(--primary); color: #0f172a; padding: 14px 25px; border-radius: 10px; text-decoration: none; font-weight: bold; display: block; margin-top: auto; border: none; }
+        
+        /* Specialized Sections */
+        .fivem-banner { background: var(--card); backdrop-filter: blur(12px); padding: 15px 30px; border-radius: 15px; border: 1px solid rgba(51, 65, 85, 0.5); max-width: 1020px; width: calc(100% - 40px); display: flex; align-items: center; justify-content: center; gap: 20px; text-decoration: none; margin: 0 auto 40px auto; color: white; }
+        
+        .nimora-section, .about-section { max-width: 1020px; width: calc(100% - 40px); margin: 20px auto 60px auto; padding: 30px; background: var(--card); backdrop-filter: blur(12px); border-radius: 20px; border: 1px solid rgba(51, 65, 85, 0.5); text-align: center; }
+        .nimora-section h2, .about-section h2 { margin: 0 0 10px 0; font-size: 2.2rem; color: var(--primary); }
+        
+        .about-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; text-align: left; margin-top: 30px; }
+        .about-item h3 { color: var(--primary); }
 
-        /* Modal / Popup Styling */
-        .modal-overlay {
-            display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(15, 23, 42, 0.9); backdrop-filter: blur(8px); z-index: 1000;
-            justify-content: center; align-items: center; padding: 20px;
-        }
-        .modal-content {
-            background: var(--card); border: 1px solid var(--primary); padding: 40px;
-            border-radius: 20px; width: 100%; max-width: 500px; position: relative;
-        }
+        .glass-btn { background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1); padding: 12px; border-radius: 12px; text-decoration: none; display: flex; align-items: center; justify-content: center; gap: 12px; color: white; font-weight: bold; transition: 0.3s; width: 180px; box-sizing: border-box; }
+
+        /* Floating Support Ticket Button & Modal */
+        .floating-ticket-btn { position: fixed; bottom: 30px; right: 30px; background: var(--primary); color: #0f172a; border: none; padding: 15px 25px; border-radius: 50px; font-weight: bold; cursor: pointer; box-shadow: 0 10px 30px rgba(56, 189, 248, 0.4); z-index: 999; }
+        
+        .modal-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(15, 23, 42, 0.9); backdrop-filter: blur(8px); z-index: 1000; justify-content: center; align-items: center; padding: 20px; }
+        .modal-content { background: var(--card); border: 1px solid var(--primary); padding: 40px; border-radius: 20px; width: 100%; max-width: 500px; position: relative; }
         .close-modal { position: absolute; top: 20px; right: 20px; font-size: 2rem; cursor: pointer; color: #94a3b8; }
         
         .input-group { margin-bottom: 20px; text-align: left; }
         .input-group label { display: block; margin-bottom: 8px; color: var(--primary); font-size: 0.9rem; }
-        .input-group input, .input-group select, .input-group textarea {
-            width: 100%; padding: 12px; background: rgba(15, 23, 42, 0.5); border: 1px solid rgba(56, 189, 248, 0.2);
-            border-radius: 10px; color: white; box-sizing: border-box; font-family: inherit;
-        }
+        .input-group input, .input-group select, .input-group textarea { width: 100%; padding: 12px; background: rgba(15, 23, 42, 0.5); border: 1px solid rgba(56, 189, 248, 0.2); border-radius: 10px; color: white; box-sizing: border-box; font-family: inherit; }
         .submit-ticket-btn { width: 100%; padding: 15px; background: var(--primary); border: none; border-radius: 10px; font-weight: bold; cursor: pointer; transition: 0.3s; }
-        .submit-ticket-btn:hover { filter: brightness(1.2); }
-
-        /* Floating Button */
-        .floating-ticket-btn {
-            position: fixed; bottom: 30px; right: 30px; background: var(--primary); color: #0f172a;
-            border: none; padding: 15px 25px; border-radius: 50px; font-weight: bold; cursor: pointer;
-            box-shadow: 0 10px 30px rgba(56, 189, 248, 0.4); z-index: 999;
-        }
 
         footer { padding: 40px; text-align: center; border-top: 1px solid rgba(51, 65, 85, 0.3); color: #94a3b8; }
-        footer a { color: var(--primary); text-decoration: none; font-size: 0.85rem; }
+        footer a { color: var(--primary); text-decoration: none; }
     </style>
 </head>
 <body>
@@ -82,75 +92,5 @@
     </section>
 
     <div class="social-bar">
-        <a href="https://emma-novapup.github.io/TurboV-FAQ/" class="glass-link-btn">FAQ</a>
-        <a href="https://emma-novapup.github.io/TurboV-TOS/" class="glass-link-btn">TOS</a>
-        <a href="https://emma-novapup.github.io/TurboVSupport/" class="glass-link-btn">Support Center</a>
-    </div>
-
-    <div class="store-container">
-        <div class="card">
-            <h3>Bot Starter</h3>
-            <p style="font-size: 1.8rem; font-weight: bold; margin: 10px 0;">$1.49 /mo</p>
-            <a href="https://discord.gg/WRM3TM9WAw" class="btn">Select Bot Hosting</a>
-        </div>
-
-        <div class="card">
-            <h3>Cloud-V1 VPS</h3>
-            <p style="font-size: 1.8rem; font-weight: bold; margin: 10px 0;">$4.50 /mo</p>
-            <a href="https://discord.gg/WRM3TM9WAw" class="btn">Select VPS Hosting</a>
-        </div>
-    </div>
-
-    <button class="floating-ticket-btn" onclick="toggleTicket()">
-        <span>🎫 Open Ticket</span>
-    </button>
-
-    <div id="ticketModal" class="modal-overlay">
-        <div class="modal-content">
-            <span class="close-modal" onclick="toggleTicket()">&times;</span>
-            <h2>Submit a Support Ticket</h2>
-            <p>Your request will be sent directly to the TurboV staff.</p>
-            
-            <form action="https://formspree.io/f/xwvyvwzz" method="POST">
-                <div class="input-group">
-                    <label>Email Address</label>
-                    <input type="email" name="email" placeholder="email@example.com" required>
-                </div>
-                <div class="input-group">
-                    <label>Subject</label>
-                    <select name="subject">
-                        <option value="Billing">Billing Issue</option>
-                        <option value="VPS Tech">Technical Support (VPS)</option>
-                        <option value="Bot Tech">Discord Bot Hosting</option>
-                        <option value="Other">Other Inquiry</option>
-                    </select>
-                </div>
-                <div class="input-group">
-                    <label>Message</label>
-                    <textarea name="message" rows="4" placeholder="Describe your issue in detail..." required></textarea>
-                </div>
-                <input type="hidden" name="_next" value="https://emma-novapup.github.io/TurboV/">
-                
-                <button type="submit" class="submit-ticket-btn">Submit Request</button>
-            </form>
-        </div>
-    </div>
-
-    <footer>
-        <p>&copy; 2026 TurboV Hosting | <a href="https://emma-novapup.github.io/TurboV-TOS/">Terms of Service</a></p>
-    </footer>
-
-    <script>
-        function toggleTicket() {
-            const modal = document.getElementById('ticketModal');
-            modal.style.display = (modal.style.display === 'flex') ? 'none' : 'flex';
-        }
-
-        window.onclick = function(event) {
-            const modal = document.getElementById('ticketModal');
-            if (event.target == modal) { modal.style.display = "none"; }
-        }
-    </script>
-
-</body>
-</html>
+        <a href="https://www.instagram.com/turbovhosting/" target="_blank" class="social-btn"><img src="instagramlogo.png" alt="Instagram"></a>
+        <a href="https://x.com/TurboV_hosting" target="_blank" class="social-btn"><img src="whitelogo.
