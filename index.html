@@ -84,7 +84,7 @@
         .nimora-section h2 { margin: 0 0 5px 0; font-size: 1.8rem; }
         .nimora-section p { color: var(--primary); font-weight: bold; margin: 0 0 20px 0; }
 
-        .glass-btn-container { display: flex; gap: 15px; justify-content: center; flex-wrap: wrap; }
+        .glass-btn-container { display: flex; gap: 15px; justify-content: center; align-items: center; flex-wrap: wrap; }
         
         .glass-btn {
             background: rgba(255, 255, 255, 0.05);
@@ -92,6 +92,7 @@
             padding: 12px 25px; border-radius: 12px;
             text-decoration: none; display: flex; align-items: center; gap: 12px;
             color: white; font-weight: bold; transition: 0.3s;
+            min-height: 50px;
         }
         .glass-btn:hover { background: rgba(255, 255, 255, 0.1); border-color: white; }
         .glass-btn img { height: 24px; width: auto; object-fit: contain; }
@@ -154,7 +155,6 @@
         <div class="glass-btn-container">
             <a href="https://discord.com/invite/nimoranode" target="_blank" class="glass-btn">
                 <img src="discordlogo.png" alt="Discord">
-                <span>Join Discord</span>
             </a>
             <a href="https://nimoranode.com" target="_blank" class="glass-btn">
                 <img src="nimora.gif" alt="Nimora">
