@@ -79,10 +79,11 @@
                 </div>
             </div>
 
-            <div class="card">
-                <h2>Your Services</h2>
-                <p style="color: #94a3b8;">Manage your active VPS and Bot hosting subscriptions below.</p>
-                </div>
+            <div class="card" style="border-left: 5px solid #f59e0b;">
+                <h2>Total Amount Owed</h2>
+                <p id="total-owed" style="font-size: 2.5rem; font-weight: bold; color: #f59e0b; margin: 10px 0;">$0.00</p>
+                <p style="color: #94a3b8; font-size: 0.9rem;">Please settle any pending invoices to avoid service interruption.</p>
+            </div>
 
             <div class="card">
                 <h2>Invoices & Billing</h2>
@@ -113,7 +114,6 @@
     <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
 
     <script>
-        // Your Firebase Configuration
         const firebaseConfig = {
             apiKey: "AIzaSyCsVPJShswSyxcGUJoVN1sBLQzhOg6gcIc",
             authDomain: "turbov-b8dfd.firebaseapp.com",
@@ -124,43 +124,44 @@
             measurementId: "G-VS3X9ENLND"
         };
 
-        // Initialize Firebase
         firebase.initializeApp(firebaseConfig);
         const auth = firebase.auth();
         const db = firebase.firestore();
 
-        // Authentication Observer
         auth.onAuthStateChanged((user) => {
             if (user) {
-                // User is signed in
                 document.getElementById('auth-loader').style.display = 'none';
                 document.getElementById('main-content').style.display = 'block';
                 document.getElementById('client-name').innerText = user.displayName || "User";
-                
-                // Fetch real invoices from Firestore
                 loadInvoices(user.uid);
             } else {
-                // No user is signed in, redirect to login
                 window.location.href = "login.html";
             }
         });
 
-        // Function to Fetch Invoices
         function loadInvoices(uid) {
             const invoiceList = document.getElementById('invoice-list');
+            const totalDisplay = document.getElementById('total-owed');
             
-            // Query: Find invoices where userId matches current user's UID
             db.collection("invoices").where("userId", "==", uid).get()
             .then((querySnapshot) => {
-                invoiceList.innerHTML = ""; // Clear loader
-                
+                invoiceList.innerHTML = "";
+                let totalOwed = 0;
+
                 if (querySnapshot.empty) {
-                    invoiceList.innerHTML = "<tr><td colspan='5' style='text-align:center; padding: 20px;'>No invoices found in your account.</td></tr>";
+                    invoiceList.innerHTML = "<tr><td colspan='5' style='text-align:center; padding: 20px;'>No invoices found.</td></tr>";
+                    totalDisplay.innerText = "$0.00";
                     return;
                 }
 
                 querySnapshot.forEach((doc) => {
                     const data = doc.data();
+                    
+                    // Add to total if NOT paid
+                    if (data.status !== "PAID") {
+                        totalOwed += parseFloat(data.amount || 0);
+                    }
+
                     const row = `
                         <tr>
                             <td>${data.invoiceNum || '---'}</td>
@@ -172,14 +173,14 @@
                     `;
                     invoiceList.innerHTML += row;
                 });
+
+                totalDisplay.innerText = "$" + totalOwed.toFixed(2);
             })
             .catch((error) => {
                 console.error("Error fetching invoices: ", error);
-                invoiceList.innerHTML = "<tr><td colspan='5' style='text-align:center; color: #ef4444;'>Error loading billing data.</td></tr>";
             });
         }
 
-        // Logout Function
         function logout() {
             auth.signOut().then(() => {
                 window.location.href = "index.html";
