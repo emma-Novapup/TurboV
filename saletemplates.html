@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Purchase Template | TurboV Hosting</title>
+    <link rel="icon" type="image/png" href="TurboVlogo2.png">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #38bdf8;
+            --primary-hover: #0ea5e9;
+            --bg: #0f172a;
+            --card: rgba(30, 41, 59, 0.85);
+            --text-main: #f8fafc;
+            --text-dim: #94a3b8;
+            --discord: #5865F2;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg);
+            background-image: 
+                radial-gradient(at 0% 0%, rgba(56, 189, 248, 0.15) 0px, transparent 50%), 
+                radial-gradient(at 100% 100%, rgba(56, 189, 248, 0.1) 0px, transparent 50%),
+                url('./TurboV.png');
+            background-size: cover;
+            background-attachment: fixed;
+            color: var(--text-main);
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 500px;
+            text-align: center;
+        }
+
+        .header-section {
+            margin-bottom: 40px;
+        }
+
+        .header-section h1 {
+            font-size: 2.2rem;
+            font-weight: 800;
+            margin: 0;
+            background: linear-gradient(to right, #fff, var(--primary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .template-card {
+            background: var(--card);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(56, 189, 248, 0.2);
+            border-radius: 24px;
+            padding: 40px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+        .template-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--primary);
+        }
+
+        .preview-img {
+            width: 100%;
+            height: 200px;
+            background: rgba(15, 23, 42, 0.5);
+            border-radius: 16px;
+            margin-bottom: 25px;
+            object-fit: cover;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .badge {
+            display: inline-block;
+            background: rgba(56, 189, 248, 0.1);
+            color: var(--primary);
+            padding: 6px 16px;
+            border-radius: 100px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+        }
+
+        .price-display {
+            margin: 20px 0;
+        }
+
+        .price-display .currency {
+            font-size: 1.5rem;
+            color: var(--text-dim);
+            vertical-align: top;
+            margin-right: 2px;
+        }
+
+        .price-display .amount {
+            font-size: 4rem;
+            font-weight: 800;
+            line-height: 1;
+        }
+
+        .feature-list {
+            list-style: none;
+            padding: 0;
+            margin: 25px 0 35px 0;
+            text-align: left;
+        }
+
+        .feature-list li {
+            color: var(--text-dim);
+            margin-bottom: 12px;
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .feature-list li::before {
+            content: "✦";
+            color: var(--primary);
+            margin-right: 12px;
+            font-size: 1.1rem;
+        }
+
+        .btn-container {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .btn {
+            display: block;
+            padding: 16px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .btn-view {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: #fff;
+        }
+
+        .btn-view:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: #fff;
+        }
+
+        .btn-buy {
+            background: var(--discord);
+            color: #fff;
+            box-shadow: 0 4px 15px rgba(88, 101, 242, 0.3);
+        }
+
+        .btn-buy:hover {
+            background: #4752c4;
+            transform: scale(1.02);
+            box-shadow: 0 8px 20px rgba(88, 101, 242, 0.4);
+        }
+
+        .footer-links {
+            margin-top: 30px;
+        }
+
+        .footer-links a {
+            color: var(--text-dim);
+            text-decoration: none;
+            font-size: 0.85rem;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="header-section">
+            <h1>TurboV Assets</h1>
+        </div>
+
+        <div class="template-card">
+            <span class="badge">Hosting Template</span>
+            
+            <img src="TurboV.png" alt="Template Preview" class="preview-img">
+            
+            <h2 style="margin: 0; font-size: 1.6rem;">Ultimate Hosting Layout</h2>
+            
+            <div class="price-display">
+                <span class="currency">$</span><span class="amount">5</span><span style="color: var(--text-dim); font-weight: 400; margin-left: 5px;">USD</span>
+            </div>
+
+            <ul class="feature-list">
+                <li>Responsive HTML5 & CSS3</li>
+                <li>TurboV Dark UI Theme</li>
+                <li>SEO Optimized Structure</li>
+                <li>Lifetime Updates & Support</li>
+            </ul>
+
+            <div class="btn-container">
+                <a href="https://emma-novapup.github.io/HostingTemplateWebsite/#pricing" target="_blank" class="btn btn-view">View Live Demo</a>
+                <a href="https://discord.gg/YOUR_DISCORD_LINK" target="_blank" class="btn btn-buy">Purchase via Discord</a>
+            </div>
+        </div>
+
+        <div class="footer-links">
+            <a href="index.html">← Return to Main Site</a>
+        </div>
+    </div>
+
+</body>
+</html>
