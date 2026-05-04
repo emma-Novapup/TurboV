@@ -1,1 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | TurboV Hosting</title>
+    <link rel="icon" type="image/png" href="TurboVlogo2.png">
+    
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-auth-compat.js"></script>
 
+    <style>
+        :root { --primary: #38bdf8; --bg: #0f172a; --card: rgba(30, 41, 59, 0.85); }
+        
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background-color: var(--bg);
+            background-image: linear-gradient(rgba(15, 23, 42, 0.85), rgba(15, 23, 42, 0.95)), url('./TurboV.png');
+            background-size: cover;
+            background-attachment: fixed;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .login-container {
+            background: var(--card);
+            backdrop-filter: blur(12px);
+            padding: 40px;
+            border-radius: 20px;
+            border: 1px solid rgba(51, 65, 85, 0.5);
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        h1 { color: var(--primary); margin-bottom: 10px; }
+        p { color: #94a3b8; margin-bottom: 30px; }
+
+        .google-btn {
+            background: white;
+            color: #1f2937;
+            padding: 12px 20px;
+            border-radius: 10px;
+            border: none;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            width: 100%;
+            cursor: pointer;
+            transition: 0.3s;
+            font-size: 1rem;
+        }
+
+        .google-btn:hover { background: #e2e8f0; transform: translateY(-2px); }
+
+        .back-home {
+            margin-top: 20px;
+            display: inline-block;
+            color: var(--primary);
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+
+        #user-info { display: none; margin-top: 20px; text-align: left; background: rgba(0,0,0,0.2); padding: 15px; border-radius: 10px; }
+        .logout-btn { background: #ef4444; color: white; border: none; padding: 8px 15px; border-radius: 5px; cursor: pointer; margin-top: 10px; width: 100%; }
+    </style>
+</head>
+<body>
+
+    <div class="login-container">
+        <h1>Welcome Back</h1>
+        <p>Access your TurboV Dashboard</p>
+
+        <button class="google-btn" id="login-button">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg" width="20" alt="Google">
+            Sign in with Google
+        </button>
+
+        <div id="user-info">
+            <p style="color: white; margin-bottom: 5px;">Logged in as:</p>
+            <strong id="user-name"></strong><br>
+            <span id="user-email" style="font-size: 0.8rem;"></span>
+            <button class="logout-btn" id="logout-button">Logout</button>
+        </div>
+
+        <br>
+        <a href="index.html" class="back-home">← Back to Main Site</a>
+    </div>
+
+    <script>
+        // Your specific Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyCsVPJShswSyxcGUJoVN1sBLQzhOg6gcIc",
+            authDomain: "turbov-b8dfd.firebaseapp.com",
+            projectId: "turbov-b8dfd",
+            storageBucket: "turbov-b8dfd.firebasestorage.app",
+            messagingSenderId: "102648318166",
+            appId: "1:102648318166:web:869bb318eba8db51dae177",
+            measurementId: "G-VS3X9ENLND"
+        };
+
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        const auth = firebase.auth();
+        const provider = new firebase.auth.GoogleAuthProvider();
+
+        const loginBtn = document.getElementById('login-button');
+        const logoutBtn = document.getElementById('logout-button');
+        const userInfo = document.getElementById('user-info');
+        const userName = document.getElementById('user-name');
+        const userEmail = document.getElementById('user-email');
+
+        // Login Logic
+        loginBtn.addEventListener('click', () => {
+            auth.signInWithPopup(provider).then((result) => {
+                console.log("Success!");
+            }).catch((error) => {
+                alert("Error: " + error.message);
+            });
+        });
+
+        // Logout Logic
+        logoutBtn.addEventListener('click', () => {
+            auth.signOut();
+        });
+
+        // Update UI based on login status
+        auth.onAuthStateChanged((user) => {
+            if (user) {
+                loginBtn.style.display = 'none';
+                userInfo.style.display = 'block';
+                userName.innerText = user.displayName;
+                userEmail.innerText = user.email;
+            } else {
+                loginBtn.style.display = 'flex';
+                userInfo.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
