@@ -30,7 +30,17 @@
         .status-badge { display: inline-block; padding: 5px 15px; background: #059669; border-radius: 20px; font-size: 0.8rem; margin-bottom: 20px; }
         
         /* Navigation & Social Bar */
-        .social-bar { display: flex; justify-content: center; align-items: center; gap: 15px; margin-bottom: 40px; flex-wrap: wrap; }
+        .social-bar { 
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            gap: 15px; 
+            margin-bottom: 40px; 
+            padding: 0 20px;
+            position: relative; 
+            flex-wrap: wrap; 
+        }
+
         .social-btn {
             width: 50px; height: 50px; border-radius: 50%;
             background: var(--card); border: 1px solid rgba(51, 65, 85, 0.5);
@@ -46,6 +56,20 @@
             align-items: center; justify-content: center; height: 50px; box-sizing: border-box;
         }
         .glass-link-btn:hover { background: var(--primary); color: #0f172a; transform: translateY(-2px); }
+        
+        /* Absolute Position for Login Button - Now on Right */
+        .login-btn { 
+            border: 1px solid var(--primary); 
+            background: rgba(56, 189, 248, 0.1); 
+            position: absolute;
+            right: 20px;
+        }
+
+        /* Responsive behavior */
+        @media (max-width: 900px) {
+            .login-btn { position: static; order: 5; } /* Moves to the end of the flex list on small screens */
+            .social-bar { justify-content: center; }
+        }
 
         /* Store Layout */
         .store-container { display: flex; justify-content: center; align-items: stretch; gap: 25px; max-width: 1300px; margin: 0 auto 40px auto; padding: 0 20px; flex-wrap: wrap; }
@@ -65,9 +89,7 @@
         .about-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; text-align: left; margin-top: 30px; }
         .about-item h3 { color: var(--primary); }
 
-        .glass-btn { background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1); padding: 12px; border-radius: 12px; text-decoration: none; display: flex; align-items: center; justify-content: center; gap: 12px; color: white; font-weight: bold; transition: 0.3s; width: 180px; box-sizing: border-box; }
-
-        /* Floating Support Button & Modal */
+        /* Floating Support Button */
         .floating-ticket-btn { position: fixed; bottom: 30px; right: 30px; background: var(--primary); color: #0f172a; border: none; padding: 15px 25px; border-radius: 50px; font-weight: bold; cursor: pointer; box-shadow: 0 10px 30px rgba(56, 189, 248, 0.4); z-index: 999; }
         .modal-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(15, 23, 42, 0.9); backdrop-filter: blur(8px); z-index: 1000; justify-content: center; align-items: center; padding: 20px; }
         .modal-content { background: var(--card); border: 1px solid var(--primary); padding: 40px; border-radius: 20px; width: 100%; max-width: 500px; position: relative; }
@@ -94,8 +116,10 @@
         <a href="https://www.instagram.com/turbovhosting/" target="_blank" class="social-btn"><img src="instagramlogo.png" alt="Instagram"></a>
         <a href="https://x.com/TurboV_hosting" target="_blank" class="social-btn"><img src="whitelogo.png" alt="X"></a>
         
-        <a href="faq.html" target="_self" class="glass-link-btn">FAQ</a>
-        <a href="tos.html" target="_self" class="glass-link-btn">TOS</a>
+        <a href="faq.html" class="glass-link-btn">FAQ</a>
+        <a href="tos.html" class="glass-link-btn">TOS</a>
+
+        <a href="login.html" class="glass-link-btn login-btn">Log In</a>
     </div>
 
     <div class="store-container">
