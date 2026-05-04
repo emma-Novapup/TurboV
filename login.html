@@ -5,20 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login | TurboV Hosting</title>
     <link rel="icon" type="image/png" href="TurboVlogo2.png">
-    
-    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-auth-compat.js"></script>
-
     <style>
         :root { --primary: #38bdf8; --bg: #0f172a; --card: rgba(30, 41, 59, 0.85); }
         
         body { 
             font-family: 'Inter', sans-serif; 
             background-color: var(--bg);
-            background-image: linear-gradient(rgba(15, 23, 42, 0.85), rgba(15, 23, 42, 0.95)), url('./TurboV.png');
+            background-image: linear-gradient(rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 0.95)), url('./TurboV.png');
             background-size: cover;
             background-attachment: fixed;
-            color: white;
+            color: var(--primary);
             display: flex;
             justify-content: center;
             align-items: center;
@@ -26,76 +22,119 @@
             margin: 0;
         }
 
-        .login-container {
+        h2, label, a, input { color: var(--primary) !important; }
+
+        .login-card {
             background: var(--card);
-            backdrop-filter: blur(12px);
+            backdrop-filter: blur(15px);
             padding: 40px;
             border-radius: 20px;
-            border: 1px solid rgba(51, 65, 85, 0.5);
+            border: 1px solid rgba(56, 189, 248, 0.3);
             width: 100%;
             max-width: 400px;
             text-align: center;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
         }
 
-        h1 { color: var(--primary); margin-bottom: 10px; }
-        p { color: #94a3b8; margin-bottom: 30px; }
-
         .google-btn {
-            background: white;
-            color: #1f2937;
-            padding: 12px 20px;
-            border-radius: 10px;
-            border: none;
-            font-weight: bold;
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 10px;
             width: 100%;
+            padding: 12px;
+            background: white;
+            color: #444 !important;
+            border-radius: 8px;
+            border: none;
+            font-weight: bold;
+            cursor: pointer;
+            margin-bottom: 25px;
+            transition: 0.3s;
+        }
+        .google-btn:hover { background: #f1f1f1; transform: translateY(-2px); }
+        .google-btn img { height: 20px; }
+
+        .divider {
+            display: flex;
+            align-items: center;
+            margin: 20px 0;
+            color: rgba(56, 189, 248, 0.5);
+            font-size: 0.8rem;
+        }
+        .divider::before, .divider::after {
+            content: "";
+            flex: 1;
+            height: 1px;
+            background: rgba(56, 189, 248, 0.2);
+            margin: 0 10px;
+        }
+
+        .input-group { text-align: left; margin-bottom: 20px; }
+        .input-group label { display: block; margin-bottom: 8px; font-weight: bold; font-size: 0.9rem; }
+        
+        input {
+            width: 100%;
+            padding: 12px;
+            background: rgba(15, 23, 42, 0.5);
+            border: 1px solid rgba(56, 189, 248, 0.2);
+            border-radius: 8px;
+            outline: none;
+            box-sizing: border-box;
+            color: var(--primary);
+        }
+
+        .login-submit {
+            width: 100%;
+            padding: 14px;
+            background: var(--primary);
+            color: #0f172a !important; 
+            border: none;
+            border-radius: 8px;
+            font-weight: bold;
             cursor: pointer;
             transition: 0.3s;
-            font-size: 1rem;
         }
+        .login-submit:hover { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(56, 189, 248, 0.3); }
 
-        .google-btn:hover { background: #e2e8f0; transform: translateY(-2px); }
-
-        .back-home {
-            margin-top: 20px;
-            display: inline-block;
-            color: var(--primary);
-            text-decoration: none;
-            font-size: 0.9rem;
-        }
-
-        #user-info { display: none; margin-top: 20px; text-align: left; background: rgba(0,0,0,0.2); padding: 15px; border-radius: 10px; }
-        .logout-btn { background: #ef4444; color: white; border: none; padding: 8px 15px; border-radius: 5px; cursor: pointer; margin-top: 10px; width: 100%; }
+        .footer-links { margin-top: 20px; font-size: 0.85rem; }
+        .footer-links a { text-decoration: none; border-bottom: 1px solid var(--primary); }
     </style>
 </head>
 <body>
 
-    <div class="login-container">
-        <h1>Welcome Back</h1>
-        <p>Access your TurboV Dashboard</p>
+    <div class="login-card">
+        <img src="TurboVlogo2.png" alt="Logo" style="height: 60px; margin-bottom: 20px;">
+        <h2>Login</h2>
 
-        <button class="google-btn" id="login-button">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg" width="20" alt="Google">
+        <button class="google-btn" id="googleLogin">
+            <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" alt="Google Logo">
             Sign in with Google
         </button>
 
-        <div id="user-info">
-            <p style="color: white; margin-bottom: 5px;">Logged in as:</p>
-            <strong id="user-name"></strong><br>
-            <span id="user-email" style="font-size: 0.8rem;"></span>
-            <button class="logout-btn" id="logout-button">Logout</button>
-        </div>
+        <div class="divider">OR</div>
+        
+        <form id="loginForm">
+            <div class="input-group">
+                <label>Email Address</label>
+                <input type="email" id="email" placeholder="email@example.com" required>
+            </div>
+            <div class="input-group">
+                <label>Password</label>
+                <input type="password" id="password" placeholder="••••••••" required>
+            </div>
+            <button type="submit" class="login-submit">Sign In</button>
+        </form>
 
-        <br>
-        <a href="index.html" class="back-home">← Back to Main Site</a>
+        <div class="footer-links">
+            <a href="index.html">Back to Site</a>
+        </div>
     </div>
 
-    <script>
-        // Your specific Firebase configuration
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+        import { getAuth, signInWithEmailAndPassword, signInWithPopup, GoogleAuthProvider } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
+
+        // Your Firebase configuration
         const firebaseConfig = {
             apiKey: "AIzaSyCsVPJShswSyxcGUJoVN1sBLQzhOg6gcIc",
             authDomain: "turbov-b8dfd.firebaseapp.com",
@@ -107,41 +146,35 @@
         };
 
         // Initialize Firebase
-        firebase.initializeApp(firebaseConfig);
-        const auth = firebase.auth();
-        const provider = new firebase.auth.GoogleAuthProvider();
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+        const provider = new GoogleAuthProvider();
 
-        const loginBtn = document.getElementById('login-button');
-        const logoutBtn = document.getElementById('logout-button');
-        const userInfo = document.getElementById('user-info');
-        const userName = document.getElementById('user-name');
-        const userEmail = document.getElementById('user-email');
+        // Email/Password Login
+        const loginForm = document.getElementById('loginForm');
+        loginForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
 
-        // Login Logic
-        loginBtn.addEventListener('click', () => {
-            auth.signInWithPopup(provider).then((result) => {
-                console.log("Success!");
-            }).catch((error) => {
-                alert("Error: " + error.message);
-            });
+            signInWithEmailAndPassword(auth, email, password)
+                .then((userCredential) => {
+                    window.location.href = "client.html";
+                })
+                .catch((error) => {
+                    alert("Login failed: " + error.message);
+                });
         });
 
-        // Logout Logic
-        logoutBtn.addEventListener('click', () => {
-            auth.signOut();
-        });
-
-        // Update UI based on login status
-        auth.onAuthStateChanged((user) => {
-            if (user) {
-                loginBtn.style.display = 'none';
-                userInfo.style.display = 'block';
-                userName.innerText = user.displayName;
-                userEmail.innerText = user.email;
-            } else {
-                loginBtn.style.display = 'flex';
-                userInfo.style.display = 'none';
-            }
+        // Google Login
+        const googleBtn = document.getElementById('googleLogin');
+        googleBtn.addEventListener('click', () => {
+            signInWithPopup(auth, provider)
+                .then((result) => {
+                    window.location.href = "client.html";
+                }).catch((error) => {
+                    alert("Google sign-in failed: " + error.message);
+                });
         });
     </script>
 </body>
