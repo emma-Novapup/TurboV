@@ -69,7 +69,7 @@
             margin: 0 10px;
         }
 
-        .input-group { text-align: left; margin-bottom: 20px; }
+        .input-group { text-align: left; margin-bottom: 15px; }
         .input-group label { display: block; margin-bottom: 8px; font-weight: bold; font-size: 0.9rem; }
         
         input {
@@ -93,6 +93,7 @@
             font-weight: bold;
             cursor: pointer;
             transition: 0.3s;
+            margin-top: 10px;
         }
         .login-submit:hover { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(56, 189, 248, 0.3); }
 
@@ -119,8 +120,12 @@
                 <input type="email" id="email" placeholder="email@example.com" required>
             </div>
             <div class="input-group">
-                <label>Password</label>
+                <label>Create Password</label>
                 <input type="password" id="password" placeholder="Min. 6 characters" required>
+            </div>
+            <div class="input-group">
+                <label>Confirm Password</label>
+                <input type="password" id="confirmPassword" placeholder="Repeat password" required>
             </div>
             <button type="submit" class="login-submit">Sign Up</button>
         </form>
@@ -135,6 +140,7 @@
         import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
         import { getAuth, createUserWithEmailAndPassword, signInWithPopup, GoogleAuthProvider } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
 
+        // Your Firebase configuration
         const firebaseConfig = {
             apiKey: "AIzaSyCsVPJShswSyxcGUJoVN1sBLQzhOg6gcIc",
             authDomain: "turbov-b8dfd.firebaseapp.com",
@@ -145,27 +151,39 @@
             measurementId: "G-VS3X9ENLND"
         };
 
+        // Initialize Firebase
         const app = initializeApp(firebaseConfig);
         const auth = getAuth(app);
         const provider = new GoogleAuthProvider();
 
-        // Email/Password Sign Up
+        // Email/Password Sign Up Logic
         const signupForm = document.getElementById('signupForm');
         signupForm.addEventListener('submit', (e) => {
             e.preventDefault();
+            
             const email = document.getElementById('email').value;
             const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
 
+            // Simple validation: check if passwords match
+            if (password !== confirmPassword) {
+                alert("Passwords do not match!");
+                return;
+            }
+
+            // Create user in Firebase
             createUserWithEmailAndPassword(auth, email, password)
                 .then((userCredential) => {
+                    // Success! Redirect to client area
                     window.location.href = "client.html";
                 })
                 .catch((error) => {
+                    // Error (e.g., email already in use, password too short)
                     alert("Registration failed: " + error.message);
                 });
         });
 
-        // Google Sign Up
+        // Google Sign Up Logic
         const googleBtn = document.getElementById('googleSignUp');
         googleBtn.addEventListener('click', () => {
             signInWithPopup(auth, provider)
