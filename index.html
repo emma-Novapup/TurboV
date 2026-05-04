@@ -24,7 +24,7 @@
             line-height: 1.6; 
         }
 
-        /* Client Area Button - Absolute Top Right */
+        /* Client Area Button - Top Right */
         .client-btn { 
             position: absolute;
             top: 25px;
@@ -78,18 +78,34 @@
         }
         .glass-link-btn:hover { background: var(--primary); color: #0f172a; transform: translateY(-2px); }
 
+        /* Fixed Partner Section Button Style */
+        .glass-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 20px;
+            background: var(--card);
+            border: 1px solid rgba(56, 189, 248, 0.4);
+            border-radius: 12px;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+            backdrop-filter: blur(10px);
+        }
+        .glass-btn:hover { border-color: var(--primary); transform: translateY(-2px); background: rgba(56, 189, 248, 0.1); }
+        .glass-btn img { height: 20px; width: auto; }
+
         @media (max-width: 768px) {
             .client-btn { position: absolute; top: 15px; right: 15px; padding: 5px 15px; font-size: 0.8rem; height: 35px; }
         }
 
-        /* Layout & Component Styles */
         .store-container { display: flex; justify-content: center; align-items: stretch; gap: 25px; max-width: 1300px; margin: 0 auto 40px auto; padding: 0 20px; flex-wrap: wrap; }
         .discord-integration-box { background: var(--card); backdrop-filter: blur(12px); padding: 10px; border-radius: 20px; border: 1px solid rgba(51, 65, 85, 0.5); width: 280px; height: 500px; box-sizing: border-box; }
         .discord-integration-box iframe { width: 100%; height: 100%; border-radius: 12px; }
         .card { background: var(--card); backdrop-filter: blur(12px); padding: 40px 25px; border-radius: 20px; border: 1px solid rgba(51, 65, 85, 0.5); transition: 0.3s; text-align: center; width: 280px; display: flex; flex-direction: column; box-sizing: border-box; }
         .card:hover { border-color: var(--primary); transform: translateY(-5px); }
         .btn { background: var(--primary); color: #0f172a; padding: 14px 25px; border-radius: 10px; text-decoration: none; font-weight: bold; display: block; margin-top: auto; border: none; transition: 0.3s; }
-        .btn:hover { filter: brightness(1.2); }
         .fivem-banner { background: var(--card); backdrop-filter: blur(12px); padding: 15px 30px; border-radius: 15px; border: 1px solid rgba(51, 65, 85, 0.5); max-width: 1020px; width: calc(100% - 40px); display: flex; align-items: center; justify-content: center; gap: 20px; text-decoration: none; margin: 0 auto 40px auto; color: white; }
         .nimora-section, .about-section { max-width: 1020px; width: calc(100% - 40px); margin: 20px auto 60px auto; padding: 30px; background: var(--card); backdrop-filter: blur(12px); border-radius: 20px; border: 1px solid rgba(51, 65, 85, 0.5); text-align: center; }
         .nimora-section h2, .about-section h2 { margin: 0 0 10px 0; font-size: 2.2rem; color: var(--primary); }
@@ -120,7 +136,6 @@
     <div class="social-bar">
         <a href="https://www.instagram.com/turbovhosting/" target="_blank" class="social-btn"><img src="instagramlogo.png" alt="Instagram"></a>
         <a href="https://x.com/TurboV_hosting" target="_blank" class="social-btn"><img src="whitelogo.png" alt="X"></a>
-        
         <a href="faq.html" class="glass-link-btn">FAQ</a>
         <a href="tos.html" class="glass-link-btn">TOS</a>
     </div>
@@ -129,87 +144,23 @@
         <div class="discord-integration-box">
             <iframe src="https://discord.com/widget?id=1500060468352385054&theme=dark" allowtransparency="true" frameborder="0"></iframe>
         </div>
-
-        <div class="card">
-            <div style="font-size: 2.5rem; margin-bottom: 20px;">🤖</div>
-            <h3>Bot Starter</h3>
-            <p style="font-size: 1.8rem; font-weight: bold; margin: 10px 0;">$1.49 /mo</p>
-            <ul style="text-align: left; list-style: none; padding: 0; font-size: 0.9rem;">
-                <li>✓ 2GB RAM</li>
-                <li>✓ 4GB NVMe Storage</li>
-                <li>✓ 24/7 Uptime</li>
-            </ul>
-            <a href="https://discord.gg/WRM3TM9WAw" class="btn">Select Bot Hosting</a>
         </div>
-
-        <div class="card">
-            <div style="font-size: 2.5rem; margin-bottom: 20px;">🌐</div>
-            <h3>Cloud-V1 VPS</h3>
-            <p style="font-size: 1.8rem; font-weight: bold; margin: 10px 0;">$4.50 /mo</p>
-            <ul style="text-align: left; list-style: none; padding: 0; font-size: 0.9rem;">
-                <li>✓ 4GB RAM</li>
-                <li>✓ 40GB NVMe SSD</li>
-                <li>✓ Root Access</li>
-            </ul>
-            <a href="https://discord.gg/WRM3TM9WAw" class="btn">Select VPS Hosting</a>
-        </div>
-
-        <div class="card">
-            <div style="font-size: 2.5rem; margin-bottom: 20px;">💻</div>
-            <h3>Web Development</h3>
-            <p style="margin: 10px 0;">
-                <del style="color: #94a3b8; font-size: 1.2rem;">$120</del> 
-                <span style="font-size: 1.8rem; font-weight: bold; color: var(--primary); margin-left: 10px;">$30</span>
-            </p>
-            <ul style="text-align: left; list-style: none; padding: 0; font-size: 0.9rem;">
-                <li>✓ Landing Pages</li>
-                <li>✓ Bot Integration</li>
-                <li>✓ Site Management</li>
-            </ul>
-            <a href="https://discord.gg/WRM3TM9WAw" class="btn">Inquire via Discord</a>
-        </div>
-    </div>
-
-    <a href="https://discord.gg/yUcbRPmbwp" class="fivem-banner">
-        <span>OFFICIAL FIVEM SERVER</span>
-        <img src="fivem.png" alt="FiveM" style="height: 30px;">
-    </a>
 
     <div class="nimora-section">
         <h2>NimoraNode</h2>
         <p>PREMIUM GAME HOSTING PARTNER</p>
         <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap; margin-top: 20px;">
-            <a href="https://discord.com/invite/nimoranode" target="_blank" class="glass-btn"><img src="discordlogo.png" style="height: 26px;"></a>
-            <a href="https://nimoranode.com" target="_blank" class="glass-btn"><img src="nimora.gif" style="height: 26px;"><span>Website</span></a>
+            <a href="https://discord.com/invite/nimoranode" target="_blank" class="glass-btn">
+                <img src="discordlogo.png" alt="Discord">
+                <span>Discord</span>
+            </a>
+            <a href="https://nimoranode.com" target="_blank" class="glass-btn">
+                <img src="nimora.gif" alt="Nimora">
+                <span>Website</span>
+            </a>
         </div>
         <div style="font-size: 0.75rem; color: rgba(255, 255, 255, 0.4); margin-top: 15px; font-style: italic;">NimoraNode is not partnered with TurboV</div>
     </div>
-
-    <button class="floating-ticket-btn" onclick="toggleTicket()">
-        <span>🎫 Open Ticket</span>
-    </button>
-
-    <div id="ticketModal" class="modal-overlay">
-        <div class="modal-content">
-            <span class="close-modal" onclick="toggleTicket()">&times;</span>
-            <h2>Submit a Support Ticket</h2>
-            <form action="https://formspree.io/f/xwvyvwzz" method="POST">
-                <div class="input-group">
-                    <label>Email Address</label>
-                    <input type="email" name="email" placeholder="email@example.com" required>
-                </div>
-                <div class="input-group">
-                    <label>Message</label>
-                    <textarea name="message" rows="4" placeholder="Describe your issue..." required></textarea>
-                </div>
-                <button type="submit" class="submit-ticket-btn">Submit Request</button>
-            </form>
-        </div>
-    </div>
-
-    <footer>
-        <p>&copy; 2026 TurboV Hosting | <a href="tos.html">TOS</a></p>
-    </footer>
 
     <script>
         function toggleTicket() {
