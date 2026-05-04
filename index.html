@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TurboV Hosting | Discord Bot & VPS Solutions</title>
+    
+    <meta name="description" content="TurboV Hosting offers high-performance Discord Bot hosting and VPS solutions.">
     <link rel="icon" type="image/png" href="TurboVlogo2.png">
 
     <style>
@@ -12,7 +14,8 @@
         body { 
             font-family: 'Inter', sans-serif; 
             background-color: var(--bg);
-            background-image: linear-gradient(rgba(15, 23, 42, 0.85), rgba(15, 23, 42, 0.95)), url('./TurboV.png');
+            background-image: linear-gradient(rgba(15, 23, 42, 0.85), rgba(15, 23, 42, 0.95)), 
+                        url('./TurboV.png');
             background-size: cover;
             background-attachment: fixed;
             background-position: center;
@@ -23,28 +26,60 @@
 
         h1, h2, h3, p, span, li, label, footer, div, a { color: var(--primary); }
 
-        /* Social Bar Styling */
+        .client-btn { 
+            position: absolute; top: 25px; right: 25px; z-index: 1000; padding: 10px 25px; 
+            background: rgba(56, 189, 248, 0.1); border: 1px solid var(--primary); 
+            border-radius: 20px; text-decoration: none; font-weight: bold; font-size: 0.9rem; 
+            backdrop-filter: blur(10px); transition: 0.3s; display: flex; align-items: center; 
+            justify-content: center; height: 45px; box-sizing: border-box;
+        }
+        .client-btn:hover { background: var(--primary); color: #0f172a !important; transform: translateY(-2px); }
+
+        .hero { padding: 60px 20px 20px 20px; text-align: center; }
+        h1 { font-size: 3.5rem; text-shadow: 2px 2px 10px rgba(0,0,0,0.5); }
+        .status-badge { display: inline-block; padding: 5px 15px; background: rgba(5, 150, 105, 0.2); border: 1px solid #059669; border-radius: 20px; font-size: 0.8rem; margin-bottom: 20px; }
+        
         .social-bar { display: flex; justify-content: center; align-items: center; gap: 15px; margin-bottom: 40px; padding: 0 20px; flex-wrap: wrap; }
         .social-btn { width: 50px; height: 50px; border-radius: 50%; background: var(--card); border: 1px solid rgba(56, 189, 248, 0.3); display: flex; align-items: center; justify-content: center; transition: 0.3s; backdrop-filter: blur(10px); text-decoration: none; }
         .social-btn:hover { border-color: var(--primary); box-shadow: 0 0 15px rgba(56, 189, 248, 0.2); transform: translateY(-2px); }
         
-        /* This filter turns white icons into the TurboV Blue color (Used for the X logo) */
         .social-btn img { width: 24px; height: 24px; object-fit: contain; filter: brightness(0) saturate(100%) invert(71%) sepia(34%) hue-rotate(175deg) brightness(101%) contrast(98%); }
         
-        /* FIX: This class removes the filter so FB and Insta show their real colors */
+        /* THIS IS THE FIX: Removes the blue filter for the FB and Instagram icons */
         .no-filter { filter: none !important; width: 28px !important; height: 28px !important; }
 
         .glass-link-btn { padding: 0 25px; background: var(--card); border: 1px solid rgba(56, 189, 248, 0.3); border-radius: 25px; text-decoration: none; font-weight: bold; font-size: 0.9rem; backdrop-filter: blur(10px); transition: 0.3s; display: flex; align-items: center; justify-content: center; height: 50px; box-sizing: border-box; }
         .glass-link-btn:hover { border-color: var(--primary); transform: translateY(-2px); }
 
-        /* Rest of the layout */
-        .client-btn { position: absolute; top: 25px; right: 25px; z-index: 1000; padding: 10px 25px; background: rgba(56, 189, 248, 0.1); border: 1px solid var(--primary); border-radius: 20px; text-decoration: none; font-weight: bold; }
-        .hero { padding: 60px 20px 20px 20px; text-align: center; }
-        h1 { font-size: 3.5rem; }
-        .store-container { display: flex; justify-content: center; gap: 25px; max-width: 1300px; margin: 0 auto; padding: 20px; flex-wrap: wrap; }
-        .card { background: var(--card); padding: 40px 25px; border-radius: 20px; border: 1px solid rgba(51, 65, 85, 0.5); width: 280px; text-align: center; }
-        .btn { background: var(--primary); color: #0f172a !important; padding: 14px 25px; border-radius: 10px; text-decoration: none; font-weight: bold; display: block; margin-top: 20px; }
-        footer { padding: 40px; text-align: center; }
+        .store-container { display: flex; justify-content: center; align-items: stretch; gap: 25px; max-width: 1300px; margin: 0 auto 40px auto; padding: 0 20px; flex-wrap: wrap; }
+        .discord-integration-box { background: var(--card); backdrop-filter: blur(12px); padding: 10px; border-radius: 20px; border: 1px solid rgba(51, 65, 85, 0.5); width: 280px; height: 500px; box-sizing: border-box; }
+        
+        .card { background: var(--card); backdrop-filter: blur(12px); padding: 40px 25px; border-radius: 20px; border: 1px solid rgba(51, 65, 85, 0.5); transition: 0.3s; text-align: center; width: 280px; display: flex; flex-direction: column; box-sizing: border-box; }
+        .card:hover { border-color: var(--primary); transform: translateY(-5px); }
+        
+        .btn { background: var(--primary); color: #0f172a !important; padding: 14px 25px; border-radius: 10px; text-decoration: none; font-weight: bold; display: block; margin-top: auto; border: none; transition: 0.3s; text-align: center; cursor: pointer; }
+        
+        .fivem-banner { background: var(--card); backdrop-filter: blur(12px); padding: 15px 30px; border-radius: 15px; border: 1px solid rgba(51, 65, 85, 0.5); max-width: 1020px; width: calc(100% - 40px); display: flex; align-items: center; justify-content: center; gap: 20px; text-decoration: none; margin: 0 auto 40px auto; }
+        
+        .nimora-section { max-width: 1020px; width: calc(100% - 40px); margin: 20px auto 60px auto; padding: 30px; background: rgba(56, 189, 248, 0.1); backdrop-filter: blur(12px); border-radius: 20px; border: 1px solid var(--primary); text-align: center; }
+        .nimora-button-container { display: flex; gap: 15px; justify-content: center; align-items: center; margin-top: 20px; }
+        
+        .nimora-discord-btn { width: 240px; height: 50px; background: var(--card); border: 1px solid rgba(56, 189, 248, 0.4); border-radius: 12px; display: flex; align-items: center; justify-content: center; transition: 0.3s; text-decoration: none; }
+        .nimora-web-btn { height: 50px; padding: 0 25px; background: var(--card); border: 1px solid rgba(56, 189, 248, 0.4); border-radius: 12px; display: flex; align-items: center; gap: 10px; font-weight: bold; text-decoration: none; transition: 0.3s; }
+        
+        .nimora-discord-btn:hover, .nimora-web-btn:hover { border-color: var(--primary); transform: translateY(-2px); background: rgba(56, 189, 248, 0.1); }
+        .nimora-discord-btn img, .nimora-web-btn img { height: 24px; width: auto; }
+
+        .about-section { max-width: 1020px; width: calc(100% - 40px); margin: 20px auto 60px auto; padding: 30px; background: rgba(56, 189, 248, 0.1); backdrop-filter: blur(12px); border-radius: 20px; border: 1px solid var(--primary); text-align: center; }
+
+        .floating-ticket-btn { position: fixed; bottom: 30px; right: 30px; background: var(--primary); color: #0f172a !important; border: none; padding: 15px 25px; border-radius: 50px; font-weight: bold; cursor: pointer; box-shadow: 0 10px 30px rgba(56, 189, 248, 0.4); z-index: 999; transition: 0.3s; display: flex; align-items: center; gap: 10px; }
+        .modal-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(15, 23, 42, 0.9); backdrop-filter: blur(8px); z-index: 1000; justify-content: center; align-items: center; padding: 20px; }
+        .modal-content { background: var(--card); border: 2px solid var(--primary); padding: 40px; border-radius: 20px; width: 100%; max-width: 500px; position: relative; text-align: center; }
+        .input-group { margin-bottom: 20px; text-align: left; }
+        .input-group input, .input-group textarea { width: 100%; padding: 12px; background: rgba(15, 23, 42, 0.5); border: 1px solid rgba(56, 189, 248, 0.3); border-radius: 10px; color: var(--primary); box-sizing: border-box; outline: none; }
+
+        footer { padding: 40px; text-align: center; border-top: 1px solid rgba(51, 65, 85, 0.3); }
+        footer a { text-decoration: none; border-bottom: 1px solid var(--primary); }
     </style>
 </head>
 <body>
@@ -52,6 +87,7 @@
     <a href="login.html" class="client-btn">Client Area</a>
 
     <section class="hero">
+        <div class="status-badge">● Systems Operational</div>
         <h1>TurboV Hosting</h1>
         <p>Premium Discord Bot Hosting & Enterprise VPS Specs.</p>
     </section>
@@ -72,13 +108,102 @@
     </div>
 
     <div class="store-container">
+        <div class="discord-integration-box">
+            <iframe src="https://discord.com/widget?id=1500060468352385054&theme=dark" allowtransparency="true" frameborder="0" style="width:100%; height:100%; border-radius:12px;"></iframe>
+        </div>
+
         <div class="card">
+            <div style="font-size: 2.5rem; margin-bottom: 20px;">🤖</div>
             <h3>Bot Starter</h3>
-            <p>$1.49 /mo</p>
-            <a href="#" class="btn">Select</a>
+            <p style="font-size: 1.8rem; font-weight: bold; margin: 10px 0;">$1.49 /mo</p>
+            <ul style="text-align: left; list-style: none; padding: 0; font-size: 0.9rem;">
+                <li>✓ 2GB RAM</li>
+                <li>✓ 4GB NVMe Storage</li>
+                <li>✓ 24/7 Uptime</li>
+            </ul>
+            <a href="https://discord.gg/WRM3TM9WAw" class="btn">Select Bot Hosting</a>
+        </div>
+
+        <div class="card">
+            <div style="font-size: 2.5rem; margin-bottom: 20px;">🌐</div>
+            <h3>Cloud-V1 VPS</h3>
+            <p style="font-size: 1.8rem; font-weight: bold; margin: 10px 0;">$4.50 /mo</p>
+            <ul style="text-align: left; list-style: none; padding: 0; font-size: 0.9rem;">
+                <li>✓ 4GB RAM</li>
+                <li>✓ 40GB NVMe SSD</li>
+                <li>✓ Root Access</li>
+            </ul>
+            <a href="https://discord.gg/WRM3TM9WAw" class="btn">Select VPS Hosting</a>
+        </div>
+
+        <div class="card">
+            <div style="font-size: 2.5rem; margin-bottom: 20px;">💻</div>
+            <h3>Web Development & Design</h3>
+            <p style="margin: 10px 0;">
+                <del style="color: rgba(56, 189, 248, 0.4) !important;">$120</del> 
+                <span style="font-size: 1.8rem; font-weight: bold; margin-left: 10px;">$30</span>
+            </p>
+            <ul style="text-align: left; list-style: none; padding: 0; font-size: 0.9rem;">
+                <li>✓ Landing Pages</li>
+                <li>✓ Bot Integration</li>
+                <li>✓ Site Management</li>
+            </ul>
+            <a href="https://discord.gg/WRM3TM9WAw" class="btn">Inquire via Discord</a>
         </div>
     </div>
 
-    <footer><p>&copy; 2026 TurboV Hosting</p></footer>
+    <a href="https://discord.gg/yUcbRPmbwp" class="fivem-banner">
+        <span>OFFICIAL FIVEM SERVER</span>
+        <img src="fivem.png" alt="FiveM" style="height: 30px;">
+    </a>
+
+    <div class="nimora-section">
+        <h2>NimoraNode</h2>
+        <p>PREMIUM GAME HOSTING PARTNER</p>
+        <div class="nimora-button-container">
+            <a href="https://discord.com/invite/nimoranode" target="_blank" class="nimora-discord-btn">
+                <img src="discordlogo.png" alt="Discord">
+            </a>
+            <a href="https://nimoranode.com" target="_blank" class="nimora-web-btn">
+                <img src="nimora.gif" alt="Nimora">
+                <span>Website</span>
+            </a>
+        </div>
+        <div style="font-size: 0.75rem; color: rgba(56, 189, 248, 0.5) !important; margin-top: 15px; font-style: italic;">NimoraNode is not partnered with TurboV</div>
+    </div>
+
+    <div class="about-section">
+        <h2>Why TurboV Hosting?</h2>
+        <p>Built for developers, by developers. Enterprise NVMe storage and lag-free stability for your projects.</p>
+    </div>
+
+    <button class="floating-ticket-btn" onclick="toggleTicket()"><span>🎫</span> Open Support Ticket</button>
+
+    <div id="ticketModal" class="modal-overlay">
+        <div class="modal-content">
+            <h2>Submit a Ticket</h2>
+            <form action="https://formspree.io/f/xwvyvwzz" method="POST">
+                <div class="input-group">
+                    <label>Email Address</label>
+                    <input type="email" name="email" required>
+                </div>
+                <div class="input-group">
+                    <label>How can we help?</label>
+                    <textarea name="message" rows="4" required></textarea>
+                </div>
+                <button type="submit" class="btn" style="width:100%">Send Ticket</button>
+            </form>
+            <button onclick="toggleTicket()" style="margin-top:15px; background:none; border:none; color:var(--primary); cursor:pointer;">[ Close Window ]</button>
+        </div>
+    </div>
+
+    <footer><p>&copy; 2026 TurboV Hosting | <a href="tos.html">TOS</a></p></footer>
+
+    <script>
+        function toggleTicket() {
+            const modal = document.getElementById('ticketModal');
+            modal.style.display = (modal.style.display === 'flex') ? 'none' : 'flex';
+        }
+    </script>
 </body>
 </html>
