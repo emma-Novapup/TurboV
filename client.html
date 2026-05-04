@@ -7,6 +7,7 @@
     <link rel="icon" type="image/png" href="TurboVlogo2.png">
     <style>
         :root { --primary: #38bdf8; --bg: #0f172a; --card: rgba(30, 41, 59, 0.85); }
+        
         body { 
             font-family: 'Inter', sans-serif; 
             background-color: var(--bg);
@@ -15,36 +16,73 @@
             background-attachment: fixed;
             color: white; margin: 0; padding: 20px;
         }
-        .portal-wrapper { max-width: 900px; margin: 40px auto; }
-        .card { background: var(--card); backdrop-filter: blur(15px); padding: 30px; border-radius: 20px; border: 1px solid rgba(56, 189, 248, 0.2); margin-bottom: 20px; }
-        h1, h2 { color: var(--primary); }
+
+        .portal-wrapper { max-width: 1000px; margin: 40px auto; }
+        
+        .card { 
+            background: var(--card); 
+            backdrop-filter: blur(15px); 
+            padding: 30px; 
+            border-radius: 20px; 
+            border: 1px solid rgba(56, 189, 248, 0.2); 
+            margin-bottom: 25px; 
+        }
+
+        h1, h2 { color: var(--primary); margin-top: 0; }
+
+        /* Invoice Table Styling */
         .invoice-table { width: 100%; border-collapse: collapse; margin-top: 20px; }
-        .invoice-table th { text-align: left; color: #94a3b8; font-size: 0.8rem; text-transform: uppercase; padding: 10px; border-bottom: 1px solid rgba(255,255,255,0.1); }
-        .invoice-table td { padding: 15px 10px; border-bottom: 1px solid rgba(255,255,255,0.05); }
-        .status-paid { color: #10b981; font-weight: bold; }
-        .status-pending { color: #f59e0b; font-weight: bold; }
-        .btn-view { padding: 5px 12px; background: rgba(56, 189, 248, 0.1); border: 1px solid var(--primary); color: var(--primary); border-radius: 5px; text-decoration: none; font-size: 0.8rem; }
-        .logout-btn { background: transparent; border: 1px solid #ef4444; color: #ef4444; padding: 10px 20px; border-radius: 10px; cursor: pointer; transition: 0.3s; }
+        .invoice-table th { text-align: left; color: #94a3b8; font-size: 0.8rem; text-transform: uppercase; padding: 12px; border-bottom: 1px solid rgba(255,255,255,0.1); }
+        .invoice-table td { padding: 15px 12px; border-bottom: 1px solid rgba(255,255,255,0.05); }
+
+        .status-paid { color: #10b981; font-weight: bold; background: rgba(16, 185, 129, 0.1); padding: 4px 8px; border-radius: 5px; }
+        .status-pending { color: #f59e0b; font-weight: bold; background: rgba(245, 158, 11, 0.1); padding: 4px 8px; border-radius: 5px; }
+
+        .btn-view { 
+            padding: 6px 15px; 
+            background: rgba(56, 189, 248, 0.1); 
+            border: 1px solid var(--primary); 
+            color: var(--primary); 
+            border-radius: 6px; 
+            text-decoration: none; 
+            font-size: 0.85rem; 
+            transition: 0.3s;
+        }
+        .btn-view:hover { background: var(--primary); color: #0f172a; }
+
+        .logout-btn { 
+            background: transparent; 
+            border: 1px solid #ef4444; 
+            color: #ef4444; 
+            padding: 10px 20px; 
+            border-radius: 10px; 
+            cursor: pointer; 
+            transition: 0.3s; 
+            font-weight: bold;
+        }
         .logout-btn:hover { background: #ef4444; color: white; }
+
+        #auth-loader { text-align: center; margin-top: 100px; font-size: 1.2rem; color: var(--primary); }
     </style>
 </head>
 <body>
 
     <div class="portal-wrapper">
-        <div id="auth-check" style="text-align: center; padding-top: 100px;">
-            <p>Verifying session...</p>
-        </div>
+        <div id="auth-loader">Initializing Secure Session...</div>
 
         <div id="main-content" style="display: none;">
             <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px;">
                 <h1>Welcome, <span id="client-name">Client</span></h1>
-                <button onclick="logout()" class="logout-btn">Sign Out</button>
+                <div style="display: flex; gap: 15px;">
+                    <a href="index.html" class="btn-view" style="padding: 10px 20px;">Home</a>
+                    <button onclick="logout()" class="logout-btn">Sign Out</button>
+                </div>
             </div>
 
             <div class="card">
-                <h2>Active Services</h2>
-                <p style="color: #94a3b8;">You currently have 1 active Bot Starter subscription.</p>
-            </div>
+                <h2>Your Services</h2>
+                <p style="color: #94a3b8;">Manage your active VPS and Bot hosting subscriptions below.</p>
+                </div>
 
             <div class="card">
                 <h2>Invoices & Billing</h2>
@@ -60,11 +98,9 @@
                     </thead>
                     <tbody id="invoice-list">
                         <tr>
-                            <td>#TV-9901</td>
-                            <td>May 04, 2026</td>
-                            <td>$1.49</td>
-                            <td><span class="status-paid">PAID</span></td>
-                            <td><a href="#" class="btn-view">Download PDF</a></td>
+                            <td colspan="5" style="text-align:center; padding: 40px; color: #94a3b8;">
+                                Loading invoices...
+                            </td>
                         </tr>
                     </tbody>
                 </table>
@@ -74,8 +110,10 @@
 
     <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
 
     <script>
+        // Your Firebase Configuration
         const firebaseConfig = {
             apiKey: "AIzaSyCsVPJShswSyxcGUJoVN1sBLQzhOg6gcIc",
             authDomain: "turbov-b8dfd.firebaseapp.com",
@@ -85,21 +123,68 @@
             appId: "1:102648318166:web:869bb318eba8db51dae177",
             measurementId: "G-VS3X9ENLND"
         };
+
+        // Initialize Firebase
         firebase.initializeApp(firebaseConfig);
         const auth = firebase.auth();
+        const db = firebase.firestore();
 
+        // Authentication Observer
         auth.onAuthStateChanged((user) => {
             if (user) {
-                document.getElementById('auth-check').style.display = 'none';
+                // User is signed in
+                document.getElementById('auth-loader').style.display = 'none';
                 document.getElementById('main-content').style.display = 'block';
-                document.getElementById('client-name').innerText = user.displayName || "Client";
+                document.getElementById('client-name').innerText = user.displayName || "User";
+                
+                // Fetch real invoices from Firestore
+                loadInvoices(user.uid);
             } else {
-                // If not logged in, send them to the login page
+                // No user is signed in, redirect to login
                 window.location.href = "login.html";
             }
         });
 
-        function logout() { auth.signOut().then(() => { window.location.href = "index.html"; }); }
+        // Function to Fetch Invoices
+        function loadInvoices(uid) {
+            const invoiceList = document.getElementById('invoice-list');
+            
+            // Query: Find invoices where userId matches current user's UID
+            db.collection("invoices").where("userId", "==", uid).get()
+            .then((querySnapshot) => {
+                invoiceList.innerHTML = ""; // Clear loader
+                
+                if (querySnapshot.empty) {
+                    invoiceList.innerHTML = "<tr><td colspan='5' style='text-align:center; padding: 20px;'>No invoices found in your account.</td></tr>";
+                    return;
+                }
+
+                querySnapshot.forEach((doc) => {
+                    const data = doc.data();
+                    const row = `
+                        <tr>
+                            <td>${data.invoiceNum || '---'}</td>
+                            <td>${data.date || '---'}</td>
+                            <td>$${data.amount || '0.00'}</td>
+                            <td><span class="${data.status === 'PAID' ? 'status-paid' : 'status-pending'}">${data.status || 'PENDING'}</span></td>
+                            <td><a href="${data.downloadUrl || '#'}" target="_blank" class="btn-view">Download</a></td>
+                        </tr>
+                    `;
+                    invoiceList.innerHTML += row;
+                });
+            })
+            .catch((error) => {
+                console.error("Error fetching invoices: ", error);
+                invoiceList.innerHTML = "<tr><td colspan='5' style='text-align:center; color: #ef4444;'>Error loading billing data.</td></tr>";
+            });
+        }
+
+        // Logout Function
+        function logout() {
+            auth.signOut().then(() => {
+                window.location.href = "index.html";
+            });
+        }
     </script>
 </body>
 </html>
