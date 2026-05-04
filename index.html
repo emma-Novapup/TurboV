@@ -44,6 +44,7 @@
         .social-btn:hover { border-color: var(--primary); box-shadow: 0 0 15px rgba(56, 189, 248, 0.2); transform: translateY(-2px); }
         
         .social-btn img { width: 24px; height: 24px; object-fit: contain; filter: brightness(0) saturate(100%) invert(71%) sepia(34%) hue-rotate(175deg) brightness(101%) contrast(98%); }
+        
         .no-filter { filter: none !important; width: 28px !important; height: 28px !important; }
 
         .glass-link-btn { padding: 0 25px; background: var(--card); border: 1px solid rgba(56, 189, 248, 0.3); border-radius: 25px; text-decoration: none; font-weight: bold; font-size: 0.9rem; backdrop-filter: blur(10px); transition: 0.3s; display: flex; align-items: center; justify-content: center; height: 50px; box-sizing: border-box; }
@@ -58,23 +59,22 @@
         .marketplace-banner:hover { background: rgba(56, 189, 248, 0.15); border-style: solid; transform: scale(1.01); }
         .marketplace-banner span { font-weight: 800; letter-spacing: 1px; text-transform: uppercase; font-size: 1.1rem; }
 
-        /* Store Container updated to be 3-column clean */
-        .store-container { display: flex; justify-content: center; align-items: stretch; gap: 25px; max-width: 1020px; margin: 0 auto 40px auto; padding: 0 20px; flex-wrap: wrap; }
+        .store-container { display: flex; justify-content: center; align-items: stretch; gap: 25px; max-width: 1300px; margin: 0 auto 40px auto; padding: 0 20px; flex-wrap: wrap; }
         
-        .card { background: var(--card); backdrop-filter: blur(12px); padding: 40px 25px; border-radius: 20px; border: 1px solid rgba(51, 65, 85, 0.5); transition: 0.3s; text-align: center; width: 300px; display: flex; flex-direction: column; box-sizing: border-box; }
+        /* Centered Discord Container Style */
+        .discord-integration-section { 
+            display: flex; justify-content: center; margin: 40px auto; width: 100%; 
+        }
+        .discord-integration-box { 
+            background: var(--card); backdrop-filter: blur(12px); padding: 10px; border-radius: 20px; 
+            border: 1px solid rgba(51, 65, 85, 0.5); width: 350px; height: 500px; box-sizing: border-box; 
+        }
+        
+        .card { background: var(--card); backdrop-filter: blur(12px); padding: 40px 25px; border-radius: 20px; border: 1px solid rgba(51, 65, 85, 0.5); transition: 0.3s; text-align: center; width: 280px; display: flex; flex-direction: column; box-sizing: border-box; }
         .card:hover { border-color: var(--primary); transform: translateY(-5px); }
         
         .btn { background: var(--primary); color: #0f172a !important; padding: 14px 25px; border-radius: 10px; text-decoration: none; font-weight: bold; display: block; margin-top: auto; border: none; transition: 0.3s; text-align: center; cursor: pointer; }
         
-        /* New Community/Integration Section */
-        .integration-section { 
-            max-width: 1020px; width: calc(100% - 40px); margin: 40px auto; 
-            padding: 40px; background: rgba(15, 23, 42, 0.4); backdrop-filter: blur(12px); 
-            border-radius: 20px; border: 1px solid rgba(56, 189, 248, 0.2); text-align: center; 
-        }
-        .integration-section h2 { margin-bottom: 20px; font-size: 2rem; }
-        .widget-flex { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin-top: 20px; }
-
         .fivem-banner { background: var(--card); backdrop-filter: blur(12px); padding: 15px 30px; border-radius: 15px; border: 1px solid rgba(51, 65, 85, 0.5); max-width: 1020px; width: calc(100% - 40px); display: flex; align-items: center; justify-content: center; gap: 20px; text-decoration: none; margin: 0 auto 40px auto; }
         
         .nimora-section { 
@@ -84,12 +84,28 @@
         }
         .nimora-section h2 { margin: 0; font-size: 2.2rem; font-weight: 700; }
         .nimora-section p { margin: 10px 0 30px; font-size: 0.9rem; letter-spacing: 1.5px; opacity: 0.8; }
-        .nimora-widget-wrap { margin-bottom: 30px; display: flex; justify-content: center; }
-        .nimora-button-container { display: flex; gap: 20px; justify-content: center; align-items: center; }
         
-        .nimora-discord-btn { width: 220px; height: 55px; background: rgba(56, 189, 248, 0.05); border: 1px solid rgba(56, 189, 248, 0.4); border-radius: 14px; display: flex; align-items: center; justify-content: center; transition: 0.3s; text-decoration: none; }
-        .nimora-web-btn { width: 140px; height: 55px; background: rgba(56, 189, 248, 0.05); border: 1px solid rgba(56, 189, 248, 0.4); border-radius: 14px; display: flex; align-items: center; justify-content: center; gap: 10px; font-weight: bold; text-decoration: none; transition: 0.3s; }
-        .nimora-discord-btn:hover, .nimora-web-btn:hover { border-color: var(--primary); transform: translateY(-3px); background: rgba(56, 189, 248, 0.15); }
+        .nimora-widget-wrap { margin-bottom: 30px; display: flex; justify-content: center; }
+        
+        .nimora-button-container { display: flex; gap: 20px; justify-content: center; align-items: center; }
+        .nimora-discord-btn { 
+            width: 220px; height: 55px; background: rgba(56, 189, 248, 0.05); 
+            border: 1px solid rgba(56, 189, 248, 0.4); border-radius: 14px; 
+            display: flex; align-items: center; justify-content: center; 
+            transition: 0.3s; text-decoration: none; 
+        }
+        .nimora-web-btn { 
+            width: 140px; height: 55px; background: rgba(56, 189, 248, 0.05); 
+            border: 1px solid rgba(56, 189, 248, 0.4); border-radius: 14px; 
+            display: flex; align-items: center; justify-content: center; gap: 10px; 
+            font-weight: bold; text-decoration: none; transition: 0.3s; 
+        }
+        .nimora-discord-btn:hover, .nimora-web-btn:hover { 
+            border-color: var(--primary); transform: translateY(-3px); 
+            background: rgba(56, 189, 248, 0.15); 
+        }
+        .nimora-discord-btn img { height: 26px; }
+        .nimora-web-btn img { height: 22px; border-radius: 4px; }
 
         .about-section { max-width: 1020px; width: calc(100% - 40px); margin: 20px auto 60px auto; padding: 30px; background: rgba(56, 189, 248, 0.1); backdrop-filter: blur(12px); border-radius: 20px; border: 1px solid var(--primary); text-align: center; }
 
@@ -133,7 +149,7 @@
         <span>Browse Professional Web Assets & Templates</span>
     </a>
 
-    <!-- Main Pricing Cards -->
+    <!-- Hosting Cards -->
     <div class="store-container">
         <div class="card">
             <div style="font-size: 2.5rem; margin-bottom: 20px;">🤖</div>
@@ -161,7 +177,7 @@
 
         <div class="card">
             <div style="font-size: 2.5rem; margin-bottom: 20px;">💻</div>
-            <h3>Web Design</h3>
+            <h3>Web Development & Design</h3>
             <p style="margin: 10px 0;">
                 <del style="color: rgba(56, 189, 248, 0.4) !important;">$120</del> 
                 <span style="font-size: 1.8rem; font-weight: bold; margin-left: 10px;">$30</span>
@@ -175,12 +191,10 @@
         </div>
     </div>
 
-    <!-- NEW CLEAN DISCORD INTEGRATION SECTION -->
-    <div class="integration-section">
-        <h2>Join our Community</h2>
-        <p>Get instant support, updates, and chat with other developers.</p>
-        <div class="widget-flex">
-            <iframe src="https://discord.com/widget?id=1500060468352385054&theme=dark" width="350" height="500" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts" style="border-radius: 12px; border: 1px solid rgba(56, 189, 248, 0.2);"></iframe>
+    <!-- NEW SECTION: Centered TurboV Discord Integration -->
+    <div class="discord-integration-section">
+        <div class="discord-integration-box">
+            <iframe src="https://discord.com/widget?id=1500060468352385054&theme=dark" allowtransparency="true" frameborder="0" style="width:100%; height:100%; border-radius:12px;"></iframe>
         </div>
     </div>
 
@@ -192,9 +206,11 @@
     <div class="nimora-section">
         <h2>NimoraNode</h2>
         <p>RECOMMENDED GAME HOSTING</p>
+        
         <div class="nimora-widget-wrap">
             <iframe src="https://discord.com/widget?id=1257918878491742289&theme=dark" width="350" height="500" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts" style="border-radius: 12px; border: 1px solid rgba(56, 189, 248, 0.2);"></iframe>
         </div>
+
         <div class="nimora-button-container">
             <a href="https://discord.com/invite/nimoranode" target="_blank" class="nimora-discord-btn">
                 <img src="discordlogo.png" alt="Discord">
@@ -204,6 +220,7 @@
                 <span>Website</span>
             </a>
         </div>
+        
         <div style="font-size: 0.75rem; color: rgba(56, 189, 248, 0.4) !important; margin-top: 25px; font-style: italic;">
             NimoraNode is not partnered with TurboV
         </div>
