@@ -30,7 +30,6 @@
 
         h1, h2 { color: var(--primary); margin-top: 0; }
 
-        /* Invoice Table Styling */
         .invoice-table { width: 100%; border-collapse: collapse; margin-top: 20px; }
         .invoice-table th { text-align: left; color: #94a3b8; font-size: 0.8rem; text-transform: uppercase; padding: 12px; border-bottom: 1px solid rgba(255,255,255,0.1); }
         .invoice-table td { padding: 15px 12px; border-bottom: 1px solid rgba(255,255,255,0.05); }
@@ -143,7 +142,8 @@
             const invoiceList = document.getElementById('invoice-list');
             const totalDisplay = document.getElementById('total-owed');
             
-            db.collection("invoices").where("userId", "==", uid).get()
+            // FIXED: Changed "userId" to "userid" to match your Firestore screenshot
+            db.collection("invoices").where("userid", "==", uid).get()
             .then((querySnapshot) => {
                 invoiceList.innerHTML = "";
                 let totalOwed = 0;
@@ -162,13 +162,14 @@
                         totalOwed += parseFloat(data.amount || 0);
                     }
 
+                    // FIXED: Changed fields to match your DB (invoice_no, date, amount, status, invoice)
                     const row = `
                         <tr>
-                            <td>${data.invoiceNum || '---'}</td>
+                            <td>${data.invoice_no || '---'}</td>
                             <td>${data.date || '---'}</td>
                             <td>$${data.amount || '0.00'}</td>
                             <td><span class="${data.status === 'PAID' ? 'status-paid' : 'status-pending'}">${data.status || 'PENDING'}</span></td>
-                            <td><a href="${data.downloadUrl || '#'}" target="_blank" class="btn-view">Download</a></td>
+                            <td><a href="${data.invoice || '#'}" target="_blank" class="btn-view">Download</a></td>
                         </tr>
                     `;
                     invoiceList.innerHTML += row;
@@ -178,6 +179,7 @@
             })
             .catch((error) => {
                 console.error("Error fetching invoices: ", error);
+                invoiceList.innerHTML = "<tr><td colspan='5' style='text-align:center; color: #ef4444;'>Error loading data.</td></tr>";
             });
         }
 
