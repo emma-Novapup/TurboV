@@ -9,7 +9,11 @@
     <link rel="icon" type="image/png" href="TurboVlogo2.png">
 
     <style>
-        :root { --primary: #38bdf8; --bg: #0f172a; --card: rgba(30, 41, 59, 0.85); }
+        :root { 
+            --primary: #38bdf8; 
+            --bg: #0f172a; 
+            --card: rgba(30, 41, 59, 0.85); 
+        }
         
         body { 
             font-family: 'Inter', sans-serif; 
@@ -56,7 +60,7 @@
         }
         .glass-link-btn:hover { background: var(--primary); color: #0f172a; transform: translateY(-2px); }
         
-        /* Fixed Auth Container (Top Right Corner) */
+        /* Auth Container - Top Right Corner */
         .auth-container { 
             position: absolute; 
             top: 20px; 
@@ -64,10 +68,10 @@
             display: flex; 
             align-items: center; 
             z-index: 1001;
+            gap: 10px;
         }
         .login-btn { border: 1px solid var(--primary); background: rgba(56, 189, 248, 0.1); }
-        #user-profile { display: none; align-items: center; gap: 12px; background: var(--card); padding: 5px 15px; border-radius: 20px; border: 1px solid var(--primary); backdrop-filter: blur(10px); height: 50px; box-sizing: border-box; }
-        .logout-link { color: #ef4444; text-decoration: none; font-size: 0.75rem; font-weight: bold; cursor: pointer; margin-left: 5px; }
+        .logout-link { color: #ef4444; text-decoration: none; font-size: 0.75rem; font-weight: bold; cursor: pointer; display: none; }
 
         @media (max-width: 900px) {
             .auth-container { position: relative; top: 0; right: 0; justify-content: center; margin-bottom: 20px; width: 100%; }
@@ -87,7 +91,6 @@
         
         .nimora-section, .about-section { max-width: 1020px; width: calc(100% - 40px); margin: 20px auto 60px auto; padding: 30px; background: var(--card); backdrop-filter: blur(12px); border-radius: 20px; border: 1px solid rgba(51, 65, 85, 0.5); text-align: center; }
         .nimora-section h2, .about-section h2 { margin: 0 0 10px 0; font-size: 2.2rem; color: var(--primary); }
-        .about-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; text-align: left; margin-top: 30px; }
 
         /* Floating Support Ticket */
         .floating-ticket-btn { position: fixed; bottom: 30px; right: 30px; background: var(--primary); color: #0f172a; border: none; padding: 15px 25px; border-radius: 50px; font-weight: bold; cursor: pointer; box-shadow: 0 10px 30px rgba(56, 189, 248, 0.4); z-index: 999; }
@@ -101,11 +104,8 @@
 <body>
 
     <div class="auth-container">
-        <a href="client.html" id="login-nav-btn" class="glass-link-btn login-btn">Client Area</a>
-        <div id="user-profile">
-            <span id="nav-user-name" style="font-weight: bold; color: var(--primary); font-size: 0.9rem;"></span>
-            <a onclick="logout()" class="logout-link">Logout</a>
-        </div>
+        <a href="client.html" id="client-btn" class="glass-link-btn login-btn">Client Area</a>
+        <a onclick="logout()" id="logout-btn" class="logout-link">Logout</a>
     </div>
 
     <section class="hero">
@@ -117,7 +117,6 @@
     <div class="social-bar">
         <a href="https://www.instagram.com/turbovhosting/" target="_blank" class="social-btn"><img src="instagramlogo.png" alt="Instagram"></a>
         <a href="https://x.com/TurboV_hosting" target="_blank" class="social-btn"><img src="whitelogo.png" alt="X"></a>
-        
         <a href="faq.html" class="glass-link-btn">FAQ</a>
         <a href="tos.html" class="glass-link-btn">TOS</a>
     </div>
@@ -189,15 +188,14 @@
 
     <div class="about-section">
         <h2>Why TurboV Hosting?</h2>
-        <div class="about-grid">
-            <div class="about-item"><h3>Community Focused</h3><p>Built for developers, by developers.</p></div>
-            <div class="about-item"><h3>Power & Reliability</h3><p>Enterprise NVMe storage and lag-free stability.</p></div>
-            <div class="about-item"><h3>Support Excellence</h3><p>Discord-first support from people who know your projects.</p></div>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; text-align: left; margin-top: 30px;">
+            <div><h3>Community Focused</h3><p>Built for developers, by developers.</p></div>
+            <div><h3>Power & Reliability</h3><p>Enterprise NVMe storage and lag-free stability.</p></div>
+            <div><h3>Support Excellence</h3><p>Discord-first support from people who know your projects.</p></div>
         </div>
     </div>
 
     <button class="floating-ticket-btn" onclick="toggleTicket()">🎫 Open Ticket</button>
-
     <div id="ticketModal" class="modal-overlay">
         <div class="modal-content">
             <span style="position: absolute; top: 20px; right: 20px; cursor: pointer; font-size: 2rem;" onclick="toggleTicket()">&times;</span>
@@ -235,16 +233,12 @@
         const auth = firebase.auth();
 
         auth.onAuthStateChanged((user) => {
-            const loginBtn = document.getElementById('login-nav-btn');
-            const userProfile = document.getElementById('user-profile');
-            const userNameSpan = document.getElementById('nav-user-name');
+            const logoutBtn = document.getElementById('logout-btn');
             if (user) {
-                loginBtn.style.display = 'none';
-                userProfile.style.display = 'flex';
-                userNameSpan.innerText = user.displayName;
+                // If logged in, show logout link, but Client Area button remains as navigation
+                logoutBtn.style.display = 'inline-block';
             } else {
-                loginBtn.style.display = 'flex';
-                userProfile.style.display = 'none';
+                logoutBtn.style.display = 'none';
             }
         });
 
