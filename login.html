@@ -83,8 +83,15 @@
             color: var(--primary);
         }
 
-        .login-submit {
-            width: 100%;
+        /* Button Container for Login/Signup side-by-side */
+        .auth-buttons {
+            display: flex;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .btn-main {
+            flex: 1;
             padding: 14px;
             background: var(--primary);
             color: #0f172a !important; 
@@ -93,10 +100,28 @@
             font-weight: bold;
             cursor: pointer;
             transition: 0.3s;
+            text-decoration: none;
+            display: inline-block;
         }
-        .login-submit:hover { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(56, 189, 248, 0.3); }
 
-        .footer-links { margin-top: 20px; font-size: 0.85rem; }
+        .btn-outline {
+            flex: 1;
+            padding: 14px;
+            background: transparent;
+            color: var(--primary) !important;
+            border: 1px solid var(--primary);
+            border-radius: 8px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-main:hover, .btn-outline:hover { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(56, 189, 248, 0.2); }
+        .btn-outline:hover { background: rgba(56, 189, 248, 0.1); }
+
+        .footer-links { margin-top: 25px; font-size: 0.85rem; }
         .footer-links a { text-decoration: none; border-bottom: 1px solid var(--primary); }
     </style>
 </head>
@@ -122,10 +147,15 @@
                 <label>Password</label>
                 <input type="password" id="password" placeholder="••••••••" required>
             </div>
-            <button type="submit" class="login-submit">Sign In</button>
+            
+            <div class="auth-buttons">
+                <button type="submit" class="btn-main">Login</button>
+                <a href="signup.html" class="btn-outline">Sign Up</a>
+            </div>
         </form>
 
         <div class="footer-links">
+            <p>New user? <a href="signup.html">Create an account</a></p>
             <a href="index.html">Back to Site</a>
         </div>
     </div>
@@ -134,7 +164,6 @@
         import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
         import { getAuth, signInWithEmailAndPassword, signInWithPopup, GoogleAuthProvider } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
 
-        // Your Firebase configuration
         const firebaseConfig = {
             apiKey: "AIzaSyCsVPJShswSyxcGUJoVN1sBLQzhOg6gcIc",
             authDomain: "turbov-b8dfd.firebaseapp.com",
@@ -145,12 +174,10 @@
             measurementId: "G-VS3X9ENLND"
         };
 
-        // Initialize Firebase
         const app = initializeApp(firebaseConfig);
         const auth = getAuth(app);
         const provider = new GoogleAuthProvider();
 
-        // Email/Password Login
         const loginForm = document.getElementById('loginForm');
         loginForm.addEventListener('submit', (e) => {
             e.preventDefault();
@@ -166,7 +193,6 @@
                 });
         });
 
-        // Google Login
         const googleBtn = document.getElementById('googleLogin');
         googleBtn.addEventListener('click', () => {
             signInWithPopup(auth, provider)
