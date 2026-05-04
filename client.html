@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Client Area | TurboV Hosting</title>
+    
+    <link rel="icon" type="image/png" href="TurboVlogo2.png">
+    <style>
+        :root { --primary: #38bdf8; --bg: #0f172a; --card: rgba(30, 41, 59, 0.85); }
+        
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background-color: var(--bg);
+            background-image: linear-gradient(rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 0.95)), url('./TurboV.png');
+            background-size: cover;
+            background-attachment: fixed;
+            color: white; 
+            margin: 0; 
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .client-container {
+            background: var(--card);
+            backdrop-filter: blur(15px);
+            padding: 50px;
+            border-radius: 25px;
+            border: 1px solid rgba(56, 189, 248, 0.3);
+            text-align: center;
+            width: 100%;
+            max-width: 450px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+        }
+
+        h1 { color: var(--primary); font-size: 2rem; margin-bottom: 10px; }
+        p { color: #94a3b8; margin-bottom: 30px; }
+
+        /* Login State Styles */
+        #logged-out-view, #logged-in-view { display: none; flex-direction: column; gap: 15px; }
+
+        .btn {
+            padding: 15px;
+            border-radius: 12px;
+            font-weight: bold;
+            text-decoration: none;
+            transition: 0.3s;
+            cursor: pointer;
+            border: none;
+            font-size: 1rem;
+        }
+
+        .btn-primary { background: var(--primary); color: #0f172a; }
+        .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 5px 15px rgba(56, 189, 248, 0.3); }
+
+        .btn-outline { background: transparent; border: 1px solid var(--primary); color: var(--primary); }
+        .btn-outline:hover { background: rgba(56, 189, 248, 0.1); }
+
+        .welcome-text { font-size: 1.5rem; font-weight: bold; margin-bottom: 5px; }
+        .user-email { color: #64748b; font-size: 0.9rem; margin-bottom: 25px; }
+
+        .nav-home { margin-top: 20px; display: inline-block; color: #94a3b8; text-decoration: none; font-size: 0.85rem; }
+        .nav-home:hover { color: var(--primary); }
+    </style>
+</head>
+<body>
+
+    <div class="client-container">
+        <img src="TurboVlogo2.png" alt="Logo" style="width: 80px; margin-bottom: 20px;">
+        
+        <div id="logged-out-view">
+            <h1>Client Portal</h1>
+            <p>Please sign in to manage your hosting services and support tickets.</p>
+            <a href="login.html" class="btn btn-primary">Sign In with Google</a>
+            <a href="index.html" class="nav-home">← Back to Homepage</a>
+        </div>
+
+        <div id="logged-in-view">
+            <div class="welcome-text">Welcome, <span id="user-name" style="color: var(--primary);">User</span>!</div>
+            <div id="user-email" class="user-email">email@example.com</div>
+            
+            <div style="display: grid; gap: 10px;">
+                <a href="index.html" class="btn btn-primary">Manage Services</a>
+                <button onclick="logout()" class="btn btn-outline">Logout</button>
+            </div>
+            <a href="index.html" class="nav-home">Return to Homepage</a>
+        </div>
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-auth-compat.js"></script>
+
+    <script>
+        // Your existing Firebase Config
+        const firebaseConfig = {
+            apiKey: "AIzaSyCsVPJShswSyxcGUJoVN1sBLQzhOg6gcIc",
+            authDomain: "turbov-b8dfd.firebaseapp.com",
+            projectId: "turbov-b8dfd",
+            storageBucket: "turbov-b8dfd.firebasestorage.app",
+            messagingSenderId: "102648318166",
+            appId: "1:102648318166:web:869bb318eba8db51dae177",
+            measurementId: "G-VS3X9ENLND"
+        };
+        firebase.initializeApp(firebaseConfig);
+        const auth = firebase.auth();
+
+        const loggedOutView = document.getElementById('logged-out-view');
+        const loggedInView = document.getElementById('logged-in-view');
+        const userNameSpan = document.getElementById('user-name');
+        const userEmailDiv = document.getElementById('user-email');
+
+        // Logic to switch views based on auth state
+        auth.onAuthStateChanged((user) => {
+            if (user) {
+                // User is signed in
+                loggedOutView.style.display = 'none';
+                loggedInView.style.display = 'flex';
+                userNameSpan.innerText = user.displayName || "Client";
+                userEmailDiv.innerText = user.email;
+            } else {
+                // User is signed out
+                loggedOutView.style.display = 'flex';
+                loggedInView.style.display = 'none';
+            }
+        });
+
+        function logout() {
+            auth.signOut().then(() => {
+                window.location.reload();
+            });
+        }
+    </script>
+</body>
+</html>
