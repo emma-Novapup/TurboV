@@ -11,9 +11,11 @@
         body { 
             font-family: 'Inter', sans-serif; 
             background-color: var(--bg);
-            /* Updated background to use hire.png */
-            background-image: linear-gradient(rgba(15, 23, 42, 0.85), rgba(15, 23, 42, 0.95)), url('./hire.png');
-            background-size: cover;
+            /* Linear gradient adjusted to be more transparent so the art shines through */
+            background-image: linear-gradient(rgba(15, 23, 42, 0.4), rgba(15, 23, 42, 0.7)), url('./hire.png');
+            /* Changed to contain to ensure the entire image is visible */
+            background-size: contain;
+            background-repeat: no-repeat;
             background-attachment: fixed;
             background-position: center;
             color: var(--primary);
@@ -31,8 +33,19 @@
         }
 
         .header-section { margin-bottom: 60px; }
-        .header-section h1 { font-size: 3rem; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 2px; text-shadow: 0 0 20px rgba(56, 189, 248, 0.4); }
-        .header-section p { font-size: 1.1rem; opacity: 0.9; font-weight: 500; }
+        .header-section h1 { 
+            font-size: 3.5rem; 
+            margin-bottom: 10px; 
+            text-transform: uppercase; 
+            letter-spacing: 2px; 
+            text-shadow: 2px 2px 15px rgba(0, 0, 0, 0.8); /* Darker shadow for readability on light art */
+        }
+        .header-section p { 
+            font-size: 1.2rem; 
+            opacity: 1; 
+            font-weight: 600; 
+            text-shadow: 1px 1px 10px rgba(0, 0, 0, 0.8);
+        }
 
         .jobs-grid {
             display: grid;
@@ -43,10 +56,10 @@
 
         .job-card {
             background: var(--card);
-            backdrop-filter: blur(12px);
+            backdrop-filter: blur(16px); /* Increased blur to separate cards from detailed background */
             padding: 30px;
             border-radius: 20px;
-            border: 1px solid rgba(56, 189, 248, 0.2);
+            border: 1px solid rgba(56, 189, 248, 0.4);
             text-align: left;
             transition: 0.3s;
             display: flex;
@@ -56,15 +69,15 @@
         .job-card:hover {
             border-color: var(--primary);
             transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(56, 189, 248, 0.2);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
         }
 
-        .job-card h3 { margin-top: 0; font-size: 1.4rem; }
+        .job-card h3 { margin-top: 0; font-size: 1.4rem; text-shadow: 1px 1px 5px rgba(0,0,0,0.5); }
         
         .job-tag {
             display: inline-block;
             padding: 4px 12px;
-            background: rgba(56, 189, 248, 0.1);
+            background: var(--bg);
             border: 1px solid var(--primary);
             border-radius: 50px;
             font-size: 0.75rem;
@@ -80,7 +93,7 @@
             flex-grow: 1;
         }
 
-        .job-card li { margin-bottom: 8px; opacity: 0.9; }
+        .job-card li { margin-bottom: 8px; font-weight: 500; }
 
         .apply-btn {
             background: var(--primary);
@@ -102,12 +115,16 @@
             margin-top: 60px;
             display: inline-block;
             text-decoration: none;
-            font-size: 0.9rem;
-            border-bottom: 1px solid var(--primary);
-            padding-bottom: 2px;
+            font-size: 1rem;
+            font-weight: bold;
+            color: white !important;
+            background: rgba(15, 23, 42, 0.8);
+            padding: 10px 20px;
+            border-radius: 50px;
+            border: 1px solid var(--primary);
             transition: 0.3s;
         }
-        .back-home:hover { opacity: 0.7; }
+        .back-home:hover { background: var(--primary); color: #0f172a !important; }
     </style>
 </head>
 <body>
@@ -116,7 +133,7 @@
         <div class="header-section">
             <img src="TurboVlogo2.png" alt="Logo" style="height: 80px; margin-bottom: 20px;">
             <h1>Join the Team</h1>
-            <p>TurboV is expanding! We are looking for passionate individuals to help build the future of hosting.</p>
+            <p>Help us scale the next generation of hosting infrastructure.</p>
         </div>
 
         <div class="jobs-grid">
@@ -155,7 +172,7 @@
 
             <div class="job-card">
                 <div class="job-tag">Executive</div>
-                <h3>Chief Technology Officer</h3>
+                <h3>CTO</h3>
                 <ul>
                     <li>Lead infrastructure strategy</li>
                     <li>Oversee server-side development</li>
@@ -166,7 +183,7 @@
 
             <div class="job-card">
                 <div class="job-tag">Executive</div>
-                <h3>Chief Operating Officer</h3>
+                <h3>COO</h3>
                 <ul>
                     <li>Optimize business workflows</li>
                     <li>Manage partner relationships</li>
@@ -176,7 +193,7 @@
             </div>
         </div>
 
-        <a href="index.html" class="back-home">← Back to Main Site</a>
+        <a href="index.html" class="back-home">← Return to Homepage</a>
     </div>
 
 </body>
