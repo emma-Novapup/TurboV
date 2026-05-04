@@ -4,14 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <title>TurboV Web Development | Custom Web Design & High-Performance Hosting</title>
-    <meta name="description" content="TurboV specializes in professional web development, custom web design, and reliable hosting solutions. Build your community or business presence with our expert services.">
-    <meta name="keywords" content="TurboV, Web Development, Web Design, Hosting, VPS, Game Server Design, Custom Websites, Texas State Roleplay">
-    
-    <meta property="og:title" content="TurboV Web Development & Design">
-    <meta property="og:description" content="Professional web design and hosting solutions for communities and businesses.">
-    <meta property="og:image" content="TurboVlogo2.png">
-    <meta property="og:type" content="website">
+    <title>TurboV | Web Development & Professional Web Design</title>
+    <meta name="description" content="TurboV provides professional web development, custom design, and high-performance hosting solutions. Build your brand with our expert services.">
+    <meta name="keywords" content="TurboV, Web Development, Web Design, Hosting, VPS, Custom Websites">
 
     <link rel="icon" type="image/png" href="TurboVlogo2.png">
     
@@ -22,7 +17,6 @@
             background: var(--bg); 
             color: white; 
             margin: 0; 
-            line-height: 1.6;
             background-image: linear-gradient(rgba(15, 23, 42, 0.8), rgba(15, 23, 42, 0.9)), url('./TurboV.png');
             background-size: cover;
             background-attachment: fixed;
@@ -34,22 +28,18 @@
         .nav-links a:hover { color: var(--primary); }
         
         .hero { height: 80vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 0 20px; }
-        .hero h1 { font-size: 3.5rem; margin-bottom: 10px; color: var(--primary); }
-        .hero p { font-size: 1.2rem; color: #94a3b8; max-width: 600px; }
+        .hero h1 { font-size: 4rem; margin-bottom: 10px; } /* Original Size */
+        .hero p { font-size: 1.2rem; color: #94a3b8; max-width: 700px; }
         
-        .btn-main { background: var(--primary); color: #0f172a; padding: 12px 30px; border-radius: 10px; text-decoration: none; font-weight: bold; margin-top: 20px; transition: 0.3s; }
-        .btn-main:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(56, 189, 248, 0.3); }
-
-        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; padding: 50px 5%; }
-        .service-card { background: rgba(30, 41, 59, 0.5); padding: 30px; border-radius: 20px; border: 1px solid rgba(56, 189, 248, 0.1); transition: 0.3s; }
-        .service-card:hover { border-color: var(--primary); background: rgba(30, 41, 59, 0.8); }
+        .btn-main { background: var(--primary); color: #0f172a; padding: 12px 35px; border-radius: 10px; text-decoration: none; font-weight: bold; margin-top: 25px; transition: 0.3s; display: inline-block; }
+        .btn-main:hover { transform: scale(1.05); box-shadow: 0 0 20px rgba(56, 189, 248, 0.4); }
     </style>
 </head>
 <body>
 
     <nav>
         <a href="index.html" class="logo-container">
-            <img src="TurboVlogo2.png" alt="TurboV Web Development Logo" class="logo-img">
+            <img src="TurboVlogo2.png" alt="TurboV Logo" class="logo-img">
             <span style="font-size: 1.5rem; font-weight: bold;">TurboV</span>
         </a>
         <div class="nav-links">
@@ -60,29 +50,26 @@
     </nav>
 
     <header class="hero">
-        <h1>Professional Web Development & Design</h1>
-        <p>TurboV provides high-performance web solutions, custom design, and reliable hosting services tailored for your unique needs.</p>
+        <h1>TurboV Hosting</h1>
+        <p>Premium Web Development and High-Performance Solutions.</p>
         <a href="login.html" class="btn-main">Get Started</a>
     </header>
 
-    <section class="services-grid">
-        <div class="service-card">
-            <h2>Custom Web Design</h2>
-            <p>We create visually stunning, responsive websites that look great on any device. Perfect for gaming communities and businesses alike.</p>
+    <div style="padding: 60px 5%; text-align: center;">
+        <h2 style="color: var(--primary);">Our Expertise</h2>
+        <p style="color: #94a3b8; margin-bottom: 40px;">Professional design and development tailored for you.</p>
+        
+        <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 20px;">
+            <div style="background: rgba(30, 41, 59, 0.6); padding: 30px; border-radius: 15px; width: 280px; border: 1px solid rgba(255,255,255,0.05);">
+                <h3>Web Design</h3>
+                <p style="font-size: 0.9rem; color: #94a3b8;">Sleek, modern, and responsive layouts.</p>
+            </div>
+            <div style="background: rgba(30, 41, 59, 0.6); padding: 30px; border-radius: 15px; width: 280px; border: 1px solid rgba(255,255,255,0.05);">
+                <h3>Development</h3>
+                <p style="font-size: 0.9rem; color: #94a3b8;">Custom scripts and full-stack solutions.</p>
+            </div>
         </div>
-        <div class="service-card">
-            <h2>Full-Stack Development</h2>
-            <p>From simple landing pages to complex client portals with real-time databases—we build it all.</p>
-        </div>
-        <div class="service-card">
-            <h2>Premium Hosting</h2>
-            <p>Fast, secure, and reliable hosting for your web projects and server assets with 99.9% uptime.</p>
-        </div>
-    </section>
-
-    <footer style="text-align: center; padding: 40px; color: #64748b; border-top: 1px solid rgba(255,255,255,0.05);">
-        <p>&copy; 2026 TurboV Web Development & Design. All rights reserved.</p>
-    </footer>
+    </div>
 
 </body>
 </html>
