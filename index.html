@@ -70,8 +70,8 @@
 
         /* Store Layout */
         .store-container { display: flex; justify-content: center; align-items: stretch; gap: 25px; max-width: 1300px; margin: 0 auto 40px auto; padding: 0 20px; flex-wrap: wrap; }
-        .discord-integration-box { background: var(--card); backdrop-filter: blur(12px); padding: 10px; border-radius: 20px; border: 1px solid rgba(51, 65, 85, 0.5); width: 280px; height: 500px; box-sizing: border-box; }
-        .discord-integration-box iframe { width: 100%; height: 100%; border-radius: 12px; }
+        .discord-integration-box { background: var(--card); backdrop-filter: blur(12px); padding: 10px; border-radius: 20px; border: 1px solid rgba(51, 65, 85, 0.5); width: 350px; height: 500px; box-sizing: border-box; }
+        .discord-integration-box iframe { border-radius: 12px; }
         
         .card { background: var(--card); backdrop-filter: blur(12px); padding: 40px 25px; border-radius: 20px; border: 1px solid rgba(51, 65, 85, 0.5); transition: 0.3s; text-align: center; width: 280px; display: flex; flex-direction: column; box-sizing: border-box; }
         .card:hover { border-color: var(--primary); transform: translateY(-5px); }
@@ -79,12 +79,10 @@
         
         /* Banners & Sections */
         .fivem-banner { background: var(--card); backdrop-filter: blur(12px); padding: 15px 30px; border-radius: 15px; border: 1px solid rgba(51, 65, 85, 0.5); max-width: 1020px; width: calc(100% - 40px); display: flex; align-items: center; justify-content: center; gap: 20px; text-decoration: none; margin: 0 auto 40px auto; color: white; transition: 0.3s; }
-        .fivem-banner:hover { border-color: #f97316; }
         
         .nimora-section, .about-section { max-width: 1020px; width: calc(100% - 40px); margin: 20px auto 60px auto; padding: 30px; background: var(--card); backdrop-filter: blur(12px); border-radius: 20px; border: 1px solid rgba(51, 65, 85, 0.5); text-align: center; }
         .nimora-section h2, .about-section h2 { margin: 0 0 10px 0; font-size: 2.2rem; color: var(--primary); }
         .about-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; text-align: left; margin-top: 30px; }
-        .about-item h3 { color: var(--primary); }
 
         /* Floating Support Ticket */
         .floating-ticket-btn { position: fixed; bottom: 30px; right: 30px; background: var(--primary); color: #0f172a; border: none; padding: 15px 25px; border-radius: 50px; font-weight: bold; cursor: pointer; box-shadow: 0 10px 30px rgba(56, 189, 248, 0.4); z-index: 999; }
@@ -121,7 +119,7 @@
 
     <div class="store-container">
         <div class="discord-integration-box">
-            <iframe src="https://discord.com/widget?id=102648318166&theme=dark" width="100%" height="100%" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
+            <iframe src="https://discord.com/widget?id=1500060468352385054&theme=dark" width="350" height="500" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
         </div>
 
         <div class="card">
@@ -173,8 +171,9 @@
         <h2>NimoraNode</h2>
         <p>PREMIUM GAME HOSTING PARTNER</p>
         <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap; margin-top: 20px;">
-            <a href="https://discord.com/invite/nimoranode" target="_blank" class="social-btn">
-                <img src="discordlogo.png" alt="Discord" style="height: 26px;">
+            <a href="https://discord.com/invite/nimoranode" target="_blank" class="glass-link-btn" style="height: 50px; padding: 0 25px;">
+                <img src="discordlogo.png" alt="Discord" style="height: 20px; margin-right: 10px;">
+                <span>Discord</span>
             </a>
             <a href="https://nimoranode.com" target="_blank" class="glass-link-btn" style="height: 50px; padding: 0 25px;">
                 <img src="nimora.gif" alt="" style="height: 20px; margin-right: 10px;">
@@ -187,9 +186,9 @@
     <div class="about-section">
         <h2>Why TurboV Hosting?</h2>
         <div class="about-grid">
-            <div class="about-item"><h3>Community Focused</h3><p>Born from the Discord and FiveM communities, we build hosting for developers, by developers.</p></div>
-            <div class="about-item"><h3>Power & Reliability</h3><p>Experience enterprise NVMe storage and lag-free network stability on every plan.</p></div>
-            <div class="about-item"><h3>Support Excellence</h3><p>Our Discord-first support model ensures you get help from people who actually know your projects.</p></div>
+            <div class="about-item"><h3>Community Focused</h3><p>Built for developers, by developers.</p></div>
+            <div class="about-item"><h3>Power & Reliability</h3><p>Enterprise NVMe storage and lag-free stability.</p></div>
+            <div class="about-item"><h3>Support Excellence</h3><p>Discord-first support from people who know your projects.</p></div>
         </div>
     </div>
 
