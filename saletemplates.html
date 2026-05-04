@@ -135,16 +135,16 @@
         .btn-container {
             display: flex;
             flex-direction: column;
-            gap: 15px;
+            gap: 12px;
         }
 
         .btn {
             display: block;
-            padding: 16px;
+            padding: 14px;
             border-radius: 12px;
             text-decoration: none;
             font-weight: 700;
-            font-size: 1rem;
+            font-size: 0.95rem;
             transition: all 0.3s ease;
             text-align: center;
         }
@@ -163,13 +163,24 @@
         .btn-buy {
             background: var(--discord);
             color: #fff;
-            box-shadow: 0 4px 15px rgba(88, 101, 242, 0.39);
+            box-shadow: 0 4px 15px rgba(88, 101, 242, 0.3);
         }
 
         .btn-buy:hover {
             background: #4752c4;
             transform: scale(1.02);
-            box-shadow: 0 8px 20px rgba(88, 101, 242, 0.4);
+        }
+
+        .btn-home {
+            background: transparent;
+            border: 1px solid rgba(148, 163, 184, 0.3);
+            color: var(--text-dim);
+            font-size: 0.85rem;
+        }
+
+        .btn-home:hover {
+            border-color: var(--primary);
+            color: var(--primary);
         }
 
         .footer-links {
@@ -215,12 +226,13 @@
 
             <div class="btn-container">
                 <a href="https://turbov-hosting.github.io/templatewebsite/index.html" target="_blank" class="btn btn-view">View Live Demo</a>
-                <a href="https://discord.gg/WRM3TM9WAw" target="_blank" class="btn btn-buy">Purchase via Discord</a>
+                <a href="https://discord.gg/YOUR_DISCORD_LINK" target="_blank" class="btn btn-buy">Purchase via Discord</a>
+                <a href="index.html" class="btn btn-home">Return to Main Site</a>
             </div>
         </div>
 
         <div class="footer-links">
-            <a href="index.html">← Return to Main Site</a>
+            <p style="color: #64748b; font-size: 0.75rem;">Secure transaction via TurboV Community Support</p>
         </div>
     </div>
 
